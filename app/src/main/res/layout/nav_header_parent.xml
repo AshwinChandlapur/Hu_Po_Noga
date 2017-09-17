@@ -28,6 +28,6 @@
         android:text="Humble Polticiann Nograj !"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-  
+
 
 </LinearLayout>
