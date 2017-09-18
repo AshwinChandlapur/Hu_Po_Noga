@@ -204,7 +204,7 @@ public class MyHighlightView implements EditableDrawable.OnSizeChange {
         if (is_selected || is_focused) {
 
             if (mShowAnchors) {
-                //绘制边框
+
                 outlinePath.reset();
                 outlinePath.addRect(mTempRect, Path.Direction.CW);
                 outlinePaint.setColor(Color.WHITE);

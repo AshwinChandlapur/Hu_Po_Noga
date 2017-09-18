@@ -16,7 +16,7 @@ package com.common.util;
  * <li>{@link #getNext(long[], long, long, boolean)}</li>
  * </ul>
  * 
- * @author <a href="http://www.trinea.cn" target="_blank">Trinea</a> 2011-10-24
+ * @author <a href="http://www.trinea.cn" target="_blank">Trinea</a> 2011-coat-24
  */
 public class ArrayUtils {
 

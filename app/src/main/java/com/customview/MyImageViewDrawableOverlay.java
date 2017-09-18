@@ -33,11 +33,11 @@ public class MyImageViewDrawableOverlay extends ImageViewTouch {
 
         void onClick(MyHighlightView view);
 
-        //标签的点击事件处理
+
         void onClick(LabelView label);
     };
 
-    //删除的时候会出错
+
     private List<MyHighlightView>   mOverlayViews         = new CopyOnWriteArrayList<MyHighlightView>();
 
     private MyHighlightView         mOverlayView;

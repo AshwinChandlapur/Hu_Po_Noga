@@ -28,7 +28,7 @@
         android:layout_below="@id/small_filter_container"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="无滤镜"
+        android:text="Text"
         android:textColor="#9b6b6c"
         android:textSize="20sp" />
 

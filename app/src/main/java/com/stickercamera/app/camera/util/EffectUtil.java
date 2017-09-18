@@ -11,7 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.common.util.ImageUtils;
 import com.customview.LabelView;
 import com.customview.MyHighlightView;
 import com.customview.MyImageViewDrawableOverlay;
@@ -35,14 +34,15 @@ public class EffectUtil {
     private static List<MyHighlightView> hightlistViews = new CopyOnWriteArrayList<MyHighlightView>();
 
     static {
-        addonList.add(new Addon(R.drawable.sticker5));
-        addonList.add(new Addon(R.drawable.sticker2));
-        addonList.add(new Addon(R.drawable.sticker3));
-        addonList.add(new Addon(R.drawable.sticker4));
-        addonList.add(new Addon(R.drawable.sticker5));
-        addonList.add(new Addon(R.drawable.sticker6));
-        addonList.add(new Addon(R.drawable.sticker7));
-        addonList.add(new Addon(R.drawable.sticker8));
+        addonList.add(new Addon(R.drawable.coat));
+        addonList.add(new Addon(R.drawable.dppic));
+        addonList.add(new Addon(R.drawable.topi));
+        addonList.add(new Addon(R.drawable.facts));
+        addonList.add(new Addon(R.drawable.topi));
+//        addonList.add(new Addon(R.drawable.poster));
+//        addonList.add(new Addon(R.drawable.coat));
+//        addonList.add(new Addon(R.drawable.dppic));
+//        addonList.add(new Addon(R.drawable.coat));
     }
 
     public static void clear() {

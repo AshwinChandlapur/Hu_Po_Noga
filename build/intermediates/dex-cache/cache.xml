@@ -2,12 +2,30 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="/Users/rohith.ramesh/Desktop/StickerCamera/Gpu-Image/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="be8448d22b289dc0d7b8db317df8229bf0a37ffb">
+        <dex dex="/Users/rohith.ramesh/Desktop/StickerCamera/app/build/intermediates/pre-dexed/debug/classes_27b8b975d57f0d59911a08e62e889336900626b2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/rohith.ramesh/Desktop/StickerCamera/app/libs/fastjson-1.2.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f675e9a1b2bf1224183005752a9214226e8aa8e">
+        <dex dex="/Users/rohith.ramesh/Desktop/StickerCamera/app/build/intermediates/pre-dexed/debug/fastjson-1.2.5_988e44e833732b8e1441eaf24b18e8e1af46776a.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/Users/rohith.ramesh/Desktop/StickerCamera/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="cd021ab31b62dcf4ee81ac5a3f06e94c5c41c3ef">
+        sha1="2dddffebf9a9332db5ff6aea1739bdf8029fa83c">
         <dex dex="/Users/rohith.ramesh/Desktop/StickerCamera/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_053e2d93438e726438752ec315cace8a03593fb8/classes.dex" />
     </item>
     <item
@@ -18,6 +36,15 @@
         revision="25.0.0"
         sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
         <dex dex="/Users/rohith.ramesh/Desktop/StickerCamera/app/build/intermediates/transforms/dex/debug/folders/1000/2/universal-image-loader-1.9.4_f8aaa74f3da05a72488c23af1d9373ee55f33fce/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/rohith.ramesh/Desktop/StickerCamera/ImageViewTouch/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2e0092077a204409446e0da6b4ea8a9efa22400c">
+        <dex dex="/Users/rohith.ramesh/Desktop/StickerCamera/app/build/intermediates/pre-dexed/debug/classes_6283b5a66633b684eaac7d87a8bf4837d4a1dc74.jar" />
     </item>
     <item
         is-multidex="true"
@@ -36,6 +63,15 @@
         revision="25.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/Users/rohith.ramesh/Desktop/StickerCamera/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e6ca41afc2304c7d9d1254dd66df400a5ddd111b/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/rohith.ramesh/Desktop/StickerCamera/app/libs/universal-image-loader-1.9.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="/Users/rohith.ramesh/Desktop/StickerCamera/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_f8aaa74f3da05a72488c23af1d9373ee55f33fce.jar" />
     </item>
 
 </items>
