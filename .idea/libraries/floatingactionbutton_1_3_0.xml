@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="floatingactionbutton-1.3.0">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/16dfce7c44dbe5770a757782e6cb5d6be410efdd/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/16dfce7c44dbe5770a757782e6cb5d6be410efdd/output/jars/classes.jar!/" />
+      <root url="file://E:/Android/.android/build-cache/e37cbdece944fbd2b15d8e6e9981df291187eb4f/output/res" />
+      <root url="jar://E:/Android/.android/build-cache/e37cbdece944fbd2b15d8e6e9981df291187eb4f/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.melnykov/floatingactionbutton/1.3.0/dc2a2e95b198d820de6c3783899c6f6214744444/floatingactionbutton-1.3.0-sources.jar!/" />
+      <root url="jar://E:/Android/.gradle/caches/modules-2/files-2.1/com.melnykov/floatingactionbutton/1.3.0/dc2a2e95b198d820de6c3783899c6f6214744444/floatingactionbutton-1.3.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="support-v4-22.2.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/e2f21dbfeda653b8acf3d8ee4f49d9f624ad4703/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/e2f21dbfeda653b8acf3d8ee4f49d9f624ad4703/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/e2f21dbfeda653b8acf3d8ee4f49d9f624ad4703/output/jars/libs/internal_impl-22.2.0.jar!/" />
+      <root url="file://E:/Android/.android/build-cache/9a772113b8d798c3d1134d08650cfc8dd3e37ccc/output/res" />
+      <root url="jar://E:/Android/.android/build-cache/9a772113b8d798c3d1134d08650cfc8dd3e37ccc/output/jars/classes.jar!/" />
+      <root url="jar://E:/Android/.android/build-cache/9a772113b8d798c3d1134d08650cfc8dd3e37ccc/output/jars/libs/internal_impl-22.2.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/" />
+      <root url="jar://E:/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

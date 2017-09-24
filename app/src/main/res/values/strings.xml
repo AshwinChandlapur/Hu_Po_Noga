@@ -10,4 +10,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="facebook_app_id">175078613039661</string>
+    <string name="fb_login_protocol_scheme">fb175078613039661</string>
+    <string name="fb_page_accessToken">EAAZAwxNCVkjkBAG93f2MLEuA5KMIxsDOd3IGSPOZAMUu1oI0J28qODAhxWwqgWh175plO2nlA3KX2UGayMmvRcyLLL7twAk1cqTHuOvL6KFJLVTurHbroW29MInYFo2PUiIr44fvttYxIwGNZCqkvTPxGZB0uhMZD
+</string>
+    <string name="fb_page_id">humblepoliticiannograj</string>
 </resources>

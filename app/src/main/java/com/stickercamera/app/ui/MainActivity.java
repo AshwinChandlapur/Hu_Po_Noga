@@ -53,7 +53,7 @@ import butterknife.InjectView;
 import de.greenrobot.event.EventBus;
 
 
-public class MainActivity extends BaseActivity {
+public class git statusMainActivity extends BaseActivity {
 
     @InjectView(R.id.fab)
     FloatingActionButton fab;

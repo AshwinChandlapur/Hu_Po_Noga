@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="hlistview-1.2.2">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/3eb36550b4aa93fbca7be87e3f0a0c8f5d7213dc/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/3eb36550b4aa93fbca7be87e3f0a0c8f5d7213dc/output/jars/classes.jar!/" />
+      <root url="file://E:/Android/.android/build-cache/45c37bfe27040b9a2b9bcfb109590be034af81de/output/res" />
+      <root url="jar://E:/Android/.android/build-cache/45c37bfe27040b9a2b9bcfb109590be034af81de/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/it.sephiroth.android.library.horizontallistview/hlistview/1.2.2/aa7a5d4642f9794c066948d912e72e712e3d54ef/hlistview-1.2.2-sources.jar!/" />
+      <root url="jar://E:/Android/.gradle/caches/modules-2/files-2.1/it.sephiroth.android.library.horizontallistview/hlistview/1.2.2/aa7a5d4642f9794c066948d912e72e712e3d54ef/hlistview-1.2.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

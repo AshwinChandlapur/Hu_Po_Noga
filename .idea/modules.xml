@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Gpu-Image/Gpu-Image.iml" filepath="$PROJECT_DIR$/Gpu-Image/Gpu-Image.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hu_Po_Noga.iml" filepath="$PROJECT_DIR$/Hu_Po_Noga.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImageViewTouch/ImageViewTouch.iml" filepath="$PROJECT_DIR$/ImageViewTouch/ImageViewTouch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/StickerCamera.iml" filepath="$PROJECT_DIR$/StickerCamera.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
