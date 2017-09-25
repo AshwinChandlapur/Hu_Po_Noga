@@ -1,12 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nograj.poltician.humble.humble_poltician_nograj.PostsFragment"
-    android:orientation="vertical"
-    android:gravity="center">
+    tools:context="com.stickercamera.app.ui.PostsFragment">
 
     <ScrollView
+        android:layout_marginTop="55dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -30,4 +29,4 @@
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+</FrameLayout>

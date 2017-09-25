@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,14 +17,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+
+
+
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+
 import com.github.skykai.stickercamera.R;
-import com.stickercamera.app.ui.VoterID;
 
 public class ParentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    private String TAG = "ParentActivity";
     Fragment fragment;
     FragmentTransaction ft;
+    CallbackManager cbManager;
+    AccessTokenTracker accessTokenTracker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +69,63 @@ public class ParentActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        cbManager = CallbackManager.Factory.create();
+        accessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                Log.e(TAG, "onCurrentAccessTokenChanged: ");
+            }
+        };
+        accessTokenTracker.startTracking();
+        LoginManager.getInstance().registerCallback(cbManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.e(TAG, "onSuccess: " + AccessToken.getCurrentAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.e(TAG, "onCancel: ");
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.e(TAG, "onError: " + error.getMessage());
+            }
+        });
+
+
+
+
     }
+
+
+//    @Override
+//    public void onFragmentInteraction(Fragment fragment) {
+//        switchFragment(fragment);
+//    }
+//
+//    @Override
+//    public void login() {
+//        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+//    }
+
+    public void switchFragment (Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.app_bar, fragment);
+        fragmentTransaction.addToBackStack(fragment.toString());
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        cbManager.onActivityResult(requestCode, resultCode, data);
+
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -107,8 +179,22 @@ public class ParentActivity extends AppCompatActivity
             ft.commit();
 
         } else if (id == R.id.nav_slideshow) {
+//            fragment = new PostsFragment();
+//            ft = getSupportFragmentManager().beginTransaction();
+//            ft.replace(R.id.app_bar, fragment);
+//            ft.addToBackStack(null);
+//            ft.commit();
+
+//            PostsFragment pFrag = PostsFragment.newInstance();
+//            switchFragment(pFrag);
 
         } else if (id == R.id.nav_manage) {
+            fragment = new PostsFragment();
+            ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.app_bar, fragment);
+            ft.addToBackStack(null);
+            ft.commit();
+
 
         } else if (id == R.id.nav_share) {
 
@@ -120,4 +206,7 @@ public class ParentActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
+
+

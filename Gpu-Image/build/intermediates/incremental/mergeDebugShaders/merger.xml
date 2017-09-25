@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="F:\Documents\Workspace\Android\Hu_Po_Noga\Gpu-Image\src\main\shaders"/></dataSet><dataSet config="debug"><source path="F:\Documents\Workspace\Android\Hu_Po_Noga\Gpu-Image\src\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/Gpu-Image/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/Gpu-Image/src/debug/shaders"/></dataSet></merger>

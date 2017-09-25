@@ -1,6 +1,6 @@
 package com.stickercamera.app.ui;
 
-import android.content.Context;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -16,7 +16,7 @@ import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
-import com.google.gson.Gson;
+import com.github.skykai.stickercamera.R;
 import com.stickercamera.app.utility.FbFeed;
 import com.stickercamera.app.utility.FeedAdapter;
 import com.stickercamera.app.utility.onFragmentInteractionListener;
@@ -27,68 +27,34 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
 public class PostsFragment extends Fragment {
+
     private static String TAG = PostsFragment.class.getCanonicalName();
     private onFragmentInteractionListener mListener;
     private TextView noPosts;
     private RecyclerView postData;
-
     public PostsFragment() {
+        // Required empty public constructor
     }
 
     public onFragmentInteractionListener getActivityInstance(){
         return mListener;
     }
-
-    public static PostsFragment newInstance() {
-        PostsFragment fragment = new PostsFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getStory(ARG_PARAM1);
-//            mParam2 = getArguments().getStory(ARG_PARAM2);
-//        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_posts, container, false);
         noPosts = (TextView) view.findViewById(R.id.noContentText);
         postData = (RecyclerView) view.findViewById(R.id.postsData);
         getPostsData();
         return view;
-    }
-
-//    public void onButtonPressed(Uri uri) {
-//        if (mListener != null) {
-//            mListener.onFragmentInteraction();
-//        }
-//    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof onFragmentInteractionListener) {
-            mListener = (onFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+//        return inflater.inflate(R.layout.fragment_posts, container, false);
     }
 
     private void  getPostsData () {
@@ -130,4 +96,5 @@ public class PostsFragment extends Fragment {
                 }
         ).executeAsync();
     }
+
 }

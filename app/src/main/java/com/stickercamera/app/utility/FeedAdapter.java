@@ -18,6 +18,7 @@ import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.share.model.ShareHashtag;
 import com.facebook.share.model.ShareLinkContent;
+import com.github.skykai.stickercamera.R;
 import com.stickercamera.app.ui.PostsFragment;
 
 import java.util.List;
