@@ -182,17 +182,18 @@ public class ParentActivity extends AppCompatActivity
             ft.commit();
 
         }
-//        else if (id == R.id.nav_slideshow) {
-////            fragment = new PostsFragment();
-////            ft = getSupportFragmentManager().beginTransaction();
-////            ft.replace(R.id.app_bar, fragment);
-////            ft.addToBackStack(null);
-////            ft.commit();
+        else if (id == R.id.nav_manage) {
+            fragment = new PostsFragment();
+            ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.app_bar, fragment);
+            ft.addToBackStack(null);
+            ft.commit();
 //
 ////            PostsFragment pFrag = PostsFragment.newInstance();
 ////            switchFragment(pFrag);
 //
-//        } else if (id == R.id.nav_manage) {
+        }
+// else if (id == R.id.nav_manage) {
 //            fragment = new PostsFragment();
 //            ft = getSupportFragmentManager().beginTransaction();
 //            ft.replace(R.id.app_bar, fragment);

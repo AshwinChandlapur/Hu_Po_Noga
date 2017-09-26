@@ -13,6 +13,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -212,6 +213,33 @@ public class VoterID extends Fragment {
         }else {
             Toast.makeText(getActivity(), "You haven't picked Image", Toast.LENGTH_LONG).show();
         }
+    }
+
+
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+
+                    Intent i = new Intent(getActivity(),ParentActivity.class);
+                    startActivity(i);
+
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
     }
 
 
