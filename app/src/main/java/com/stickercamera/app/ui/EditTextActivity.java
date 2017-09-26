@@ -91,15 +91,15 @@ public class EditTextActivity extends BaseActivity {
                                      editStart = contentView.getSelectionStart();
                                      editEnd = contentView.getSelectionEnd();
                                      if (s.toString().length() > maxlength) {
-                                         toast("你输入的字数已经超过了限制！", Toast.LENGTH_LONG);
+                                         toast("Jai Nograju!!!", Toast.LENGTH_LONG);
                                          s.delete(editStart - 1, editEnd);
                                          int tempSelection = editStart;
                                          contentView.setText(s);
                                          contentView.setSelection(tempSelection);
                                      }
-                                     numberTips.setText("你还可以输入"
+                                     numberTips.setText("Jai Nograju"
                                                         + (maxlength - s.toString().length())
-                                                        + "个字  (" + s.toString().length() + "/"
+                                                        + "Jai  (" + s.toString().length() + "/"
                                                         + maxlength + ")");
                                  }
                              };

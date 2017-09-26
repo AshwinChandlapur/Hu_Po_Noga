@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Share"
+            android:layout_marginBottom="10dp"
             android:background="#2e2e2e"
             android:textColor="#ffffff"
             android:layout_below="@id/picture"

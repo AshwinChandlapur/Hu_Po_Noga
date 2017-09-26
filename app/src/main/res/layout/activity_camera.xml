@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
-    <!-- 显示预览图形 -->
+
 
     <SurfaceView
         android:id="@+id/surfaceView"

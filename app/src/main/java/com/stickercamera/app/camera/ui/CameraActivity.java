@@ -258,7 +258,7 @@ public class CameraActivity extends CameraBaseActivity {
         });
 
         takePhotoPanel.setOnClickListener(v -> {
-            //doNothing 防止聚焦框出现在拍照区域
+
         });
 
     }

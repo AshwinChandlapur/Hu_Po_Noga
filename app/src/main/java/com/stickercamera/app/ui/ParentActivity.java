@@ -56,8 +56,8 @@ public class ParentActivity extends AppCompatActivity
                 Intent i = new Intent(ParentActivity.this,MainActivity.class);
                 startActivity(i);
 
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         });
 
@@ -170,6 +170,9 @@ public class ParentActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Intent i = new Intent(ParentActivity.this,MainActivity.class);
+            startActivity(i);
+
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
             fragment = new VoterID();
@@ -178,29 +181,30 @@ public class ParentActivity extends AppCompatActivity
             ft.addToBackStack(null);
             ft.commit();
 
-        } else if (id == R.id.nav_slideshow) {
+        }
+//        else if (id == R.id.nav_slideshow) {
+////            fragment = new PostsFragment();
+////            ft = getSupportFragmentManager().beginTransaction();
+////            ft.replace(R.id.app_bar, fragment);
+////            ft.addToBackStack(null);
+////            ft.commit();
+//
+////            PostsFragment pFrag = PostsFragment.newInstance();
+////            switchFragment(pFrag);
+//
+//        } else if (id == R.id.nav_manage) {
 //            fragment = new PostsFragment();
 //            ft = getSupportFragmentManager().beginTransaction();
 //            ft.replace(R.id.app_bar, fragment);
 //            ft.addToBackStack(null);
 //            ft.commit();
-
-//            PostsFragment pFrag = PostsFragment.newInstance();
-//            switchFragment(pFrag);
-
-        } else if (id == R.id.nav_manage) {
-            fragment = new PostsFragment();
-            ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.app_bar, fragment);
-            ft.addToBackStack(null);
-            ft.commit();
-
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
+//
+//
+//        } else if (id == R.id.nav_share) {
+//
+//        } else if (id == R.id.nav_send) {
+//
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

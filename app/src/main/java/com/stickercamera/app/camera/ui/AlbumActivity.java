@@ -24,12 +24,7 @@ import java.util.Map;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-/**
- * 相册界面
- * Created by sky on 2015/7/8.
- * Weibo: http://weibo.com/2030683111
- * Email: 1132234509@qq.com
- */
+
 public class AlbumActivity extends CameraBaseActivity {
 
     private Map<String, Album> albums;
@@ -83,7 +78,7 @@ public class AlbumActivity extends CameraBaseActivity {
             Album album = albums.get(paths.get(position % paths.size()));
             if (StringUtils.equalsIgnoreCase(FileUtils.getInst().getSystemPhotoPath(),
                     album.getAlbumUri())) {
-                return "胶卷相册";
+                return "Gallery";
             } else if (album.getTitle().length() > 13) {
                 return album.getTitle().substring(0, 11) + "...";
             }
