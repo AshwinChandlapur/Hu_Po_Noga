@@ -6,6 +6,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,9 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-
-
+import android.widget.Toast;
 
 
 import com.facebook.AccessToken;
@@ -30,9 +30,26 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 
 import com.github.skykai.stickercamera.R;
+import com.stickercamera.app.ui.mainfeed.AndroidVersion;
+import com.stickercamera.app.ui.mainfeed.DataAdapter;
+import com.stickercamera.app.ui.mainfeed.JSONResponse;
+import com.stickercamera.app.ui.mainfeed.RequestInterface;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ParentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private RecyclerView recyclerView;
+    private ArrayList<AndroidVersion> data;
+    private DataAdapter adapter;
 
 
     private String TAG = "ParentActivity";
@@ -48,6 +65,8 @@ public class ParentActivity extends AppCompatActivity
         setContentView(R.layout.activity_parent);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -96,10 +115,48 @@ public class ParentActivity extends AppCompatActivity
             }
         });
 
-
+        initViews();
 
 
     }
+    private void initViews(){
+        recyclerView = (RecyclerView)findViewById(R.id.card_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        loadJSON();
+
+    }
+    private void loadJSON(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://raw.githubusercontent.com")
+                //    https://raw.githubusercontent.com/AshwinChandlapur/ImgLoader/gh-pages/example.json
+
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RequestInterface request = retrofit.create(RequestInterface.class);
+        Call<JSONResponse> call = request.getJSON();
+        call.enqueue(new Callback<JSONResponse>() {
+            @Override
+            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+
+                JSONResponse jsonResponse = response.body();
+                data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
+                adapter = new DataAdapter(data);
+                recyclerView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onFailure(Call<JSONResponse> call, Throwable t) {
+                Log.d("Error",t.getMessage());
+            }
+        });
+    }
+
+
+
+
 
 
 //    @Override
@@ -211,6 +268,12 @@ public class ParentActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+
+
 
 }
 
