@@ -9,12 +9,22 @@
         app:titleTxt="Humble Politiciann Nograj" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To Get Started, Click on the Camera Below."
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/title_layout"
         android:scrollbars="vertical" />
+
+
 
 
 
@@ -32,12 +42,7 @@
         app:fab_colorPressed="?attr/colorPrimaryDark"
         app:fab_colorRipple="?attr/colorPrimary" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="To Get Started, Click on the Camera Below."
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+
 
 
 </RelativeLayout>
