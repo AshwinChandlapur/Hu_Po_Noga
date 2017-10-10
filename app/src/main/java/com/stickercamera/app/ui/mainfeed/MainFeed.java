@@ -25,9 +25,9 @@ import com.stickercamera.app.ui.ParentActivity;
  */
 public class MainFeed extends Fragment {
 
-    String name,url,content;
+    String name,url,content,videoUrl;
     TextView newsname,newscontent;
-    ImageView newsimage;
+    ImageView newsimage,youtube;
 
     public MainFeed() {
         // Required empty public constructor
@@ -45,12 +45,13 @@ public class MainFeed extends Fragment {
              name = bundle.getString("name");
              url = bundle.getString("url");
              content = bundle.getString("con");
+             videoUrl = bundle.getString("videoUrl");
         }
 
         newsname = (TextView)rootView.findViewById(R.id.newsname);
         newscontent = (TextView)rootView.findViewById(R.id.newscontent);
         newsimage = (ImageView)rootView.findViewById(R.id.newsimage);
-        VideoView simpleVideoView = (VideoView) rootView.findViewById(R.id.videoView);
+        youtube = (ImageView)rootView.findViewById(R.id.youtube);
 
 
         newsname.setText(name);
@@ -59,24 +60,47 @@ public class MainFeed extends Fragment {
 
 
 
-        if ( url.endsWith(".jpg") || url.endsWith(".png")){
 
-            simpleVideoView.setVisibility(View.GONE);
-
+        if( videoUrl.endsWith("n/a"))
+        {
+            youtube.setVisibility(View.GONE);
             Glide.with(getActivity())
                     .load(url)
                     .into(newsimage);
 
-        } else if (url.endsWith(".mp4")) {
+        }else{
+            youtube.setVisibility(View.VISIBLE);
+            Glide.with(getActivity())
+                    .load(url)
+                    .into(newsimage);
 
-            Uri uri = Uri.parse(url);
-            MediaController mediaController = new MediaController(getContext());
+            youtube.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl)));
+                }
+            });
 
-
-            simpleVideoView.setVideoURI(uri);
-            simpleVideoView.start();
-            simpleVideoView.setMediaController(mediaController);
         }
+
+
+
+//        if ( url.endsWith(".jpg") || url.endsWith(".png")){
+//
+//            simpleVideoView.setVisibility(View.GONE);
+//            youtube.setVisibility(View.GONE);
+//
+//
+//        } else if (url.endsWith(".mp4")) {
+//
+//              youtube.setVisibility(View.VISIBLE);
+//            simpleVideoView.setVisibility(View.GONE);
+////            Uri uri = Uri.parse(url);
+////            MediaController mediaController = new MediaController(getContext());
+////            simpleVideoView.setVideoURI(uri);
+////            simpleVideoView.start();
+////            simpleVideoView.setMediaController(mediaController);
+//        }
 
 
         return rootView;

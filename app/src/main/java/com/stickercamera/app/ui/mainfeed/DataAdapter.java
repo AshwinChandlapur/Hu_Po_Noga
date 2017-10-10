@@ -49,11 +49,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         String name = android.get(i).getName();
         String url = android.get(i).getUrl();
         String con = android.get(i).getCon();
+        String videoUrl = android.get(i).getVideoUrl();
 
         Bundle bundle = new Bundle();
         bundle.putString("name",name);
         bundle.putString("url",url);
         bundle.putString("con",con);
+        bundle.putString("videoUrl",videoUrl);
         MainFeed mainFeed = new MainFeed();
         mainFeed.setArguments(bundle);
 
@@ -62,6 +64,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         viewHolder.tv_name.setText(android.get(i).getName());
         viewHolder.tv_url.setText(android.get(i).getUrl());
         viewHolder.tv_content.setText(android.get(i).getCon());
+
         Glide.with(viewHolder.feedimage.getContext())
                 .load(android.get(i).getUrl())
                 .into(viewHolder.feedimage);

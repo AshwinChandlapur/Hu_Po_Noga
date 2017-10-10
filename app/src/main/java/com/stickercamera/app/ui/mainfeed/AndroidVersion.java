@@ -7,6 +7,7 @@ public class AndroidVersion {
     private String img;
     private String name;
     private String content;
+    private String videoUrl;
 
     public String getUrl() {
         return img;
@@ -19,4 +20,6 @@ public class AndroidVersion {
     public String getCon() {
         return content;
     }
+
+    public String getVideoUrl() { return videoUrl; }
 }
