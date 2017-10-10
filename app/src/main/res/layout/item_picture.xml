@@ -20,20 +20,60 @@
             android:id="@+id/picture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/default_img"
             android:scaleType="centerInside"
-            />
-        <Button
+            android:src="@drawable/default_img" />
+
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share"
-            android:layout_marginBottom="10dp"
-            android:background="#2e2e2e"
-            android:textColor="#ffffff"
+            android:src="@drawable/view"
+            android:id="@+id/view"
+            android:layout_below="@+id/picture"
+            android:layout_toLeftOf="@+id/bshare"
+            android:layout_toStartOf="@+id/bshare"
+            android:background="@color/transparent"
+            android:layout_marginTop="@dimen/height_68px"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBaseline="@+id/bshare"-->
+            <!--android:layout_alignBottom="@+id/bshare"-->
+            <!--android:layout_marginTop="@dimen/height_68px"-->
+            <!--android:layout_marginLeft="90dp"-->
+            <!--android:layout_toLeftOf="@+id/bshare"-->
+            <!--android:layout_toStartOf="@+id/bshare"-->
+            <!--android:text="View"-->
+            <!--android:textColor="#4e4e4e"-->
+            <!--android:textSize="16sp" />-->
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/picture"
+            android:id="@+id/share"
+            android:layout_marginTop="@dimen/height_68px"
+            android:layout_toEndOf="@+id/bshare"
+            android:layout_toRightOf="@+id/bshare"
+            android:background="@color/transparent"
+            android:maxHeight="@dimen/height_16px"
+            android:maxWidth="@dimen/height_16px"
+            android:src="@drawable/share" />
+
+
+        <Button
+            android:id="@+id/bshare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/picture"
-            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/bshare"/>
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:background="#2e2e2e"
+            android:text="Share"
+            android:textColor="#ffffff"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 

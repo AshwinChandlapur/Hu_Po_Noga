@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -119,6 +120,39 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+
+    private void getScreenShotShare() {
+        Date now = new Date();
+        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
+
+        try {
+            // image naming and path  to include sd card  appending name you choose for file
+            String mPath = Environment.getExternalStorageDirectory().toString() + "/" + now + ".jpg";
+
+            // create bitmap screen capture
+            // View v1 = getWindow().getDecorView().getRootView();
+            // View v1 = getCurrentFocus().getRootView();
+            View v1 = findViewById(R.id.picture);
+            v1.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(v1.getDrawingCache());
+            v1.setDrawingCacheEnabled(false);
+
+            File imageFile = new File(mPath);
+
+            FileOutputStream outputStream = new FileOutputStream(imageFile);
+            int quality = 100;
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
+            outputStream.flush();
+            outputStream.close();
+
+            shareImage(imageFile);//Here is the Difference
+        } catch (Throwable e) {
+            // Several error may come out with file handling or OOM
+            e.printStackTrace();
+        }
+    }
+
+
     private void openScreenshot(File imageFile) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
@@ -126,6 +160,8 @@ public class MainActivity extends BaseActivity {
         intent.setDataAndType(uri, "image/*");
         startActivity(intent);
     }
+
+
 
 
     public void onEventMainThread(FeedItem feedItem) {
@@ -225,10 +261,18 @@ public class MainActivity extends BaseActivity {
                     getScreenShot();
                 }
             });
-            holder.share.setOnClickListener(new View.OnClickListener() {
+            holder.view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     getScreenShot();
+                }
+            });
+
+
+            holder.share.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    getScreenShotShare();
                 }
             });
 
@@ -258,8 +302,10 @@ public class MainActivity extends BaseActivity {
         RelativeLayout pictureLayout;
         @InjectView(R.id.picture)
         ImageView picture;
-        @InjectView(R.id.bshare)
-        Button share;
+        @InjectView(R.id.view)
+        ImageButton view;
+        @InjectView(R.id.share)
+        ImageButton share;
 
 
 
