@@ -28,20 +28,20 @@ public class EffectService {
         List<FilterEffect> filters = new ArrayList<FilterEffect>();
         filters.add(new FilterEffect("Normal", GPUImageFilterTools.FilterType.NORMAL, 0));
 
-        filters.add(new FilterEffect("1", GPUImageFilterTools.FilterType.ACV_AIMEI, 0));
-        filters.add(new FilterEffect("2", GPUImageFilterTools.FilterType.ACV_DANLAN, 0));
-        filters.add(new FilterEffect("3", GPUImageFilterTools.FilterType.ACV_DANHUANG, 0));
-        filters.add(new FilterEffect("4", GPUImageFilterTools.FilterType.ACV_FUGU, 0));
-        filters.add(new FilterEffect("5", GPUImageFilterTools.FilterType.ACV_GAOLENG, 0));
-        filters.add(new FilterEffect("6", GPUImageFilterTools.FilterType.ACV_HUAIJIU, 0));
-        filters.add(new FilterEffect("7", GPUImageFilterTools.FilterType.ACV_JIAOPIAN, 0));
-        filters.add(new FilterEffect("8", GPUImageFilterTools.FilterType.ACV_KEAI, 0));
-        filters.add(new FilterEffect("9", GPUImageFilterTools.FilterType.ACV_LOMO, 0));
-        filters.add(new FilterEffect("10", GPUImageFilterTools.FilterType.ACV_MORENJIAQIANG, 0));
-        filters.add(new FilterEffect("11", GPUImageFilterTools.FilterType.ACV_NUANXIN, 0));
-        filters.add(new FilterEffect("12", GPUImageFilterTools.FilterType.ACV_QINGXIN, 0));
-        filters.add(new FilterEffect("13", GPUImageFilterTools.FilterType.ACV_RIXI, 0));
-        filters.add(new FilterEffect("14", GPUImageFilterTools.FilterType.ACV_WENNUAN, 0));
+        filters.add(new FilterEffect("Amaro", GPUImageFilterTools.FilterType.ACV_AIMEI, 0));
+        filters.add(new FilterEffect("Danlan", GPUImageFilterTools.FilterType.ACV_DANLAN, 0));
+        filters.add(new FilterEffect("Aden", GPUImageFilterTools.FilterType.ACV_DANHUANG, 0));
+        filters.add(new FilterEffect("Fugu", GPUImageFilterTools.FilterType.ACV_FUGU, 0));
+        filters.add(new FilterEffect("Perpetua", GPUImageFilterTools.FilterType.ACV_GAOLENG, 0));
+        filters.add(new FilterEffect("Ludwig", GPUImageFilterTools.FilterType.ACV_HUAIJIU, 0));
+        filters.add(new FilterEffect("Valencia", GPUImageFilterTools.FilterType.ACV_JIAOPIAN, 0));
+        filters.add(new FilterEffect("Keai", GPUImageFilterTools.FilterType.ACV_KEAI, 0));
+        filters.add(new FilterEffect("Lomo", GPUImageFilterTools.FilterType.ACV_LOMO, 0));
+        filters.add(new FilterEffect("Sieraa", GPUImageFilterTools.FilterType.ACV_MORENJIAQIANG, 0));
+        filters.add(new FilterEffect("Mountain", GPUImageFilterTools.FilterType.ACV_NUANXIN, 0));
+        filters.add(new FilterEffect("Hefe", GPUImageFilterTools.FilterType.ACV_QINGXIN, 0));
+        filters.add(new FilterEffect("Rixi", GPUImageFilterTools.FilterType.ACV_RIXI, 0));
+        filters.add(new FilterEffect("Mayfair", GPUImageFilterTools.FilterType.ACV_WENNUAN, 0));
 
         return filters;
     }
