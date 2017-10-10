@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,15 +68,16 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
         Glide.with(viewHolder.feedimage.getContext())
                 .load(android.get(i).getUrl())
+                .centerCrop()
                 .into(viewHolder.feedimage);
 
 
 
 
-        viewHolder.feedimage.setOnClickListener(new View.OnClickListener() {
+        viewHolder.parent_feed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(viewHolder.feedimage.getContext(), "inside viewholder position = " + i, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(viewHolder.feedimage.getContext(), "inside viewholder position = " + i, Toast.LENGTH_SHORT).show();
                 MainFeed mainFeed = new MainFeed();
                 mainFeed.setArguments(bundle);
                 ft = ((AppCompatActivity)viewHolder.feedimage.getContext()).getSupportFragmentManager().beginTransaction();
@@ -104,10 +106,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView tv_name,tv_url,tv_content;
         public ImageView feedimage;
-        private LinearLayout feeds;
+        public CardView parent_feed;
         public ViewHolder(View view) {
             super(view);
-
+            parent_feed = (CardView)view.findViewById(R.id.parent_feed);
             tv_name = (TextView)view.findViewById(R.id.tv_name);
             tv_url = (TextView)view.findViewById(R.id.tv_url);
             tv_content = (TextView)view.findViewById(R.id.tv_content);
