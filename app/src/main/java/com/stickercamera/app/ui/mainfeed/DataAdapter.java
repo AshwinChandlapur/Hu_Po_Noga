@@ -1,7 +1,13 @@
 package com.stickercamera.app.ui.mainfeed;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +31,7 @@ import java.util.ArrayList;
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     private ArrayList<AndroidVersion> android;
     private Context context;
+    FragmentTransaction ft;
 
     public DataAdapter(ArrayList<AndroidVersion> android) {
         this.android = android;
@@ -39,6 +46,19 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder viewHolder, int i) {
 
+        String name = android.get(i).getName();
+        String url = android.get(i).getUrl();
+        String con = android.get(i).getCon();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("name",name);
+        bundle.putString("url",url);
+        bundle.putString("con",con);
+        MainFeed mainFeed = new MainFeed();
+        mainFeed.setArguments(bundle);
+
+
+
         viewHolder.tv_name.setText(android.get(i).getName());
         viewHolder.tv_url.setText(android.get(i).getUrl());
         viewHolder.tv_content.setText(android.get(i).getCon());
@@ -47,12 +67,25 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                 .into(viewHolder.feedimage);
 
 
+
+
         viewHolder.feedimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(viewHolder.feedimage.getContext(), "inside viewholder position = " + i, Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(mContext,DetailActivity.class);
-//                mContext.startActivity(intent);
+                MainFeed mainFeed = new MainFeed();
+                mainFeed.setArguments(bundle);
+                ft = ((AppCompatActivity)viewHolder.feedimage.getContext()).getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.app_bar, mainFeed);
+                ft.addToBackStack(null);
+                ft.commit();
+
+
+//                Intent intent = new Intent(viewHolder.feedimage.getContext(),MainActivity.class);
+//                intent.putExtra("name",name);
+//                intent.putExtra("url",url);
+//                intent.putExtra("con",con);
+//                viewHolder.feedimage.getContext().startActivity(intent);
             }
         });
 
@@ -66,8 +99,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView tv_name,tv_url,tv_content;
-        private ImageView feedimage;
+        public TextView tv_name,tv_url,tv_content;
+        public ImageView feedimage;
         private LinearLayout feeds;
         public ViewHolder(View view) {
             super(view);

@@ -365,7 +365,11 @@ public class CameraActivity extends CameraBaseActivity {
         private byte[] data;
 
         protected void onPreExecute() {
-            showProgressDialog("Loading..Pls Wait...");
+
+
+            toast("Loading, Please Wait!",Toast.LENGTH_SHORT);
+
+//            showProgressDialog("Loading, Please Wait!");
         }
 
         ;
@@ -393,7 +397,7 @@ public class CameraActivity extends CameraBaseActivity {
                     CameraManager.getInst().processPhotoItem(CameraActivity.this,
                             new PhotoItem(result, System.currentTimeMillis()));
             } else {
-                toast("Loading Photo. Pls Wait...", Toast.LENGTH_LONG);
+                toast("Try Again.", Toast.LENGTH_LONG);
             }
         }
     }

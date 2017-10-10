@@ -38,6 +38,8 @@ import com.stickercamera.app.ui.mainfeed.RequestInterface;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,6 +52,7 @@ public class ParentActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private ArrayList<AndroidVersion> data;
     private DataAdapter adapter;
+
 
 
     private String TAG = "ParentActivity";
@@ -127,11 +130,23 @@ public class ParentActivity extends AppCompatActivity
         loadJSON();
 
     }
+
+
+
+
     private void loadJSON(){
+
+        int cacheSize = 10 * 1024 * 1024; // 10 MB
+        Cache cache = new Cache(getCacheDir(), cacheSize);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com")
                 //    https://raw.githubusercontent.com/AshwinChandlapur/ImgLoader/gh-pages/example.json
-
+                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RequestInterface request = retrofit.create(RequestInterface.class);

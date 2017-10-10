@@ -246,6 +246,7 @@ public class PhotoProcessActivity extends CameraBaseActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            //Toast.makeText(getApplicationContext(),"Loading...Please Wait!",Toast.LENGTH_LONG);
             showProgressDialog("Loading...Please Wait!");
         }
 

@@ -11,6 +11,15 @@
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_52ed9b472a04e2cf722f3e9548d63fe857ed2964.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_4df9c1cf1296b437346fc8884356a46edd517f2f/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/ImageViewTouch/build/intermediates/bundles/default/classes.jar"
         jumboMode="false"
@@ -137,6 +146,15 @@
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_cb54adf4447d51b551f5f8e86429c92a7988a867.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/libs/universal-image-loader-1.9.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/transforms/dex/debug/folders/1000/2/universal-image-loader-1.9.4_3de4b17e01d713153078c5e3eb4cf0a478049622/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/ashwinchandlapur/.android/build-cache/7c7433a6fbdc59ef9a052ae6785dcda9ba2a3aba/output/jars/classes.jar"
         jumboMode="false"
@@ -171,6 +189,15 @@
         revision="25.0.0"
         sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.4.0_a8cffbd15076b80192db74c24325bd678eaf7836.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/libs/fastjson-1.2.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f675e9a1b2bf1224183005752a9214226e8aa8e">
+        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/transforms/dex/debug/folders/1000/2/fastjson-1.2.5_2ee9fc9657ff645e55d8bd03bd1a1dff0fce5375/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -252,6 +279,15 @@
         revision="25.0.0"
         sha1="914f5d3e3ace66080e59613708f06d129a222e25">
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_2f197de396129f8e2c2c5bcc0f30ab3ac7cf9ac2.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="acb928770a76ab9e86f97272bf435fb7ec6b7205">
+        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fbc41114faca73e9a1f2a14066eaa19cc4b48f36/classes.dex" />
     </item>
     <item
         is-multidex="false"
