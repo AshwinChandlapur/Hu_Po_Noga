@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/constraint"
+    android:clickable="true"
     tools:context="com.stickercamera.app.ui.VoterID"
     android:background="#2e2e2e"
     tools:layout_editor_absoluteY="81dp"
@@ -19,91 +20,130 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:cropToPadding="true"
-        android:src="@drawable/voterid"
+        android:src="@drawable/voters"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
 
 
     <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/photo"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="47dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/votercard"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/votercard"
+        app:layout_constraintTop_toTopOf="@+id/votercard"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/votercard"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintVertical_bias="0.429"
         android:layout_marginStart="8dp"
-        android:adjustViewBounds="true"
-        android:cropToPadding="true"
-        android:maxHeight="100dp"
-        android:maxWidth="100dp"
-        android:minHeight="100dp"
-        android:minWidth="100dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.822"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintTop_creator="1" />
-
+        android:layout_marginEnd="8dp" />
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Name is what"
-        android:textSize="20dp"
         android:id="@+id/cardNameText"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="18sp"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/votercard"
+        app:layout_constraintRight_toRightOf="@+id/votercard"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/votercard"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/votercard"
         android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.774"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintHorizontal_bias="0.584"
+        app:layout_constraintVertical_bias="0.583"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/photo"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginEnd="47dp"-->
+        <!--android:layout_marginLeft="24dp"-->
+        <!--android:layout_marginRight="0dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:cropToPadding="true"-->
+        <!--android:maxHeight="100dp"-->
+        <!--android:maxWidth="100dp"-->
+        <!--android:minHeight="100dp"-->
+        <!--android:minWidth="100dp"-->
+
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.822"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.444"-->
+        <!--tools:layout_constraintBottom_creator="1"-->
+        <!--tools:layout_constraintTop_creator="1" />-->
 
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Father what?"
-        android:textSize="20dp"
-        android:id="@+id/cardFatherNameText"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/votercard"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/votercard"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.74"
-        app:layout_constraintVertical_bias="0.703" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Name is what"-->
+        <!--android:textSize="20dp"-->
+        <!--android:id="@+id/cardNameText"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/votercard"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/votercard"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--app:layout_constraintHorizontal_bias="0.774"-->
+        <!--app:layout_constraintVertical_bias="0.632" />-->
 
 
-    <LinearLayout
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Father what?"-->
+        <!--android:textSize="20dp"-->
+        <!--android:id="@+id/cardFatherNameText"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/votercard"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="@+id/votercard"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--app:layout_constraintHorizontal_bias="0.74"-->
+        <!--app:layout_constraintVertical_bias="0.703" />-->
+
+
+    <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:id="@+id/box"
         android:orientation="vertical"
-        android:background="#ffffff"
+        android:background="#4e4e4e"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
@@ -115,60 +155,57 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:id="@+id/linearLayout"
+            android:layout_above="@+id/choosePhoto"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"/>
+                android:textSize="20sp"
+                android:text="Name : "
+                android:textColor="#ffffff"/>
 
             <EditText
-                android:layout_width="100dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
                 android:id="@+id/name"
                 />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Father Name"/>
-
-            <EditText
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/fathername"/>
-        </LinearLayout>
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+
             android:id="@+id/choosePhoto"
-            android:text="Choose a Photo"/>
+            android:text="Choose a Photo"
+            android:layout_above="@+id/getID"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Get Yout Nograj ID"
-            android:id="@+id/getID"/>
+            android:id="@+id/getID"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
 
 
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 

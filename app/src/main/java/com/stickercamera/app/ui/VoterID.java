@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,10 +60,10 @@ public class VoterID extends Fragment {
     }
 
 
-    EditText name,fatherName;
-    TextView cardNameText,cardFatherNameText;
+    EditText name;
+    TextView cardNameText;
     Button choosePhoto,getId;
-    LinearLayout box;
+    RelativeLayout box;
     ConstraintLayout ll;
 
 
@@ -86,14 +87,12 @@ public class VoterID extends Fragment {
 
 
 
-        box = (LinearLayout)rootView.findViewById(R.id.box);
+        box = (RelativeLayout)rootView.findViewById(R.id.box);
         name = (EditText)rootView.findViewById(R.id.name);
-        fatherName = (EditText)rootView.findViewById(R.id.fathername);
+
         choosePhoto = (Button)rootView.findViewById(R.id.choosePhoto);
         getId=(Button) rootView.findViewById(R.id.getID);
         cardNameText = (TextView)rootView.findViewById(R.id.cardNameText);
-        cardFatherNameText=(TextView)rootView.findViewById(R.id.cardFatherNameText);
-
 
 
 
@@ -115,11 +114,6 @@ public class VoterID extends Fragment {
 
                 String cardName = name.getText().toString();
                 cardNameText.setText(cardName);
-
-
-                String cardFatherName = fatherName.getText().toString();
-                cardFatherNameText.setText(cardFatherName);
-
 
 
                 getScreenShot();

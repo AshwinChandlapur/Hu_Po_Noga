@@ -35,14 +35,18 @@ public class EffectUtil {
 
     static {
         addonList.add(new Addon(R.drawable.coat));
+        addonList.add(new Addon(R.drawable.humble));
+        addonList.add(new Addon(R.drawable.humbly));
+        addonList.add(new Addon(R.drawable.mestru));
+        addonList.add(new Addon(R.drawable.royal));
+        addonList.add(new Addon(R.drawable.royally));
         addonList.add(new Addon(R.drawable.dppic));
         addonList.add(new Addon(R.drawable.topi));
         addonList.add(new Addon(R.drawable.facts));
-        addonList.add(new Addon(R.drawable.cutit));
+        addonList.add(new Addon(R.drawable.cutitnew));
         addonList.add(new Addon(R.drawable.glasses));
         addonList.add(new Addon(R.drawable.goldtopi));
         addonList.add(new Addon(R.drawable.ladooframe));
-        addonList.add(new Addon(R.drawable.vodka));
     }
 
     public static void clear() {
