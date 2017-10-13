@@ -31,7 +31,7 @@
                 android:title="Share" />
             <item
                 android:id="@+id/nav_aboutus"
-                android:icon="@drawable/share"
+                android:icon="@drawable/info"
                 android:title="About Us" />
         </menu>
     </item>

@@ -262,6 +262,10 @@ public class ParentActivity extends AppCompatActivity
             ft.commit();
 
         }
+        else if(id ==R.id.nav_tickets){
+
+
+        }
         else if (id == R.id.nav_share) {
                     String str = "https://play.google.com/store/apps/details?id=" + getPackageName();
                     Intent sendIntent = new Intent();
