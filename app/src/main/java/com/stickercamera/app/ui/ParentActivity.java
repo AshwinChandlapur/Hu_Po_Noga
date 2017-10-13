@@ -241,12 +241,12 @@ public class ParentActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_sticker) {
             Intent i = new Intent(ParentActivity.this,MainActivity.class);
             startActivity(i);
 
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_voter) {
             fragment = new VoterID();
             ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.app_bar, fragment);
@@ -254,30 +254,27 @@ public class ParentActivity extends AppCompatActivity
             ft.commit();
 
         }
-        else if (id == R.id.nav_manage) {
+        else if (id == R.id.nav_fbfeed) {
             fragment = new PostsFragment();
             ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.app_bar, fragment);
             ft.addToBackStack(null);
             ft.commit();
-//
-////            PostsFragment pFrag = PostsFragment.newInstance();
-////            switchFragment(pFrag);
-//
+
         }
-// else if (id == R.id.nav_manage) {
-//            fragment = new PostsFragment();
-//            ft = getSupportFragmentManager().beginTransaction();
-//            ft.replace(R.id.app_bar, fragment);
-//            ft.addToBackStack(null);
-//            ft.commit();
-//
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
+        else if (id == R.id.nav_share) {
+                    String str = "https://play.google.com/store/apps/details?id=" + getPackageName();
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT,
+                            "♥ Vote for Nograj! Becaz He's Humble! :D ♥\n\nDownload it Now:\n" + str);
+                    sendIntent.setType("text/plain");
+                    startActivity(sendIntent);
+
+
+        } else if (id == R.id.nav_aboutus) {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
