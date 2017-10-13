@@ -26,10 +26,10 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/small_filter_container"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="Text"
         android:textColor="#9b6b6c"
-        android:textSize="20sp" />
+        android:textSize="10sp" />
 
 </RelativeLayout>
