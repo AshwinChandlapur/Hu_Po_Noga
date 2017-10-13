@@ -266,6 +266,10 @@ public class ParentActivity extends AppCompatActivity
 
 
         }
+        else if (id ==R.id.nav_home){
+            Intent i = new Intent(getApplicationContext(),ParentActivity.class);
+            startActivity(i);
+        }
         else if (id == R.id.nav_share) {
                     String str = "https://play.google.com/store/apps/details?id=" + getPackageName();
                     Intent sendIntent = new Intent();
