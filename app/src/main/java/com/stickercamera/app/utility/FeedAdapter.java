@@ -1,5 +1,6 @@
 package com.stickercamera.app.utility;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -14,7 +15,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.share.model.ShareHashtag;
 import com.facebook.share.model.ShareLinkContent;
@@ -58,10 +58,6 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
             likeBtn = (LinearLayout) itemView.findViewById(R.id.likeBtn);
             shareBtn = (LinearLayout) itemView.findViewById(R.id.shareBtn);
             likesCount = (TextView) itemView.findViewById(R.id.likesCount);
-            //set default values
-//            name.setText("Name");
-//            timeStamp.setText("timeStamp-12:78-20/1/2013");
-//            statusMsg.setText("statusMsg goes here");
         }
     }
 
@@ -72,55 +68,72 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
         return new FeedViewHolder(view);
     }
 
+
+
     @Override
     public void onBindViewHolder(FeedViewHolder holder, int position) {
         final FbFeed feed = feedList.get(position);
-        try {
-//            Log.e(TAG, "onBindViewHolder: " + feed.toString());
-            setText(holder.name, feed.getFromName());
-            holder.statusMsg.setText(Html.fromHtml(feed.getMessage()));
-            setText(holder.timeStamp, feed.getCreate_time());
-            if (feed.getFull_picture() != null || feed.getFull_picture() != ""){
-                Glide.with(parentFrag)
-                        .load(feed.getFull_picture())
-                        .asBitmap()
-                        .into(holder.feedImg);
-                holder.feedImg.setVisibility(View.VISIBLE);
-            } else {
-                holder.feedImg.setVisibility(View.GONE);
-            }
-            Log.e(TAG, "onBindViewHolder: " + feed.getLikesCount());
-//            setText(holder.likesCount, feed.getLikesCount());
-            if (feed.getLikesCount() != null || feed.getLikesCount() != ""){
-                holder.likesCount.setText(feed.getLikesCount() + " Likes");
-            } else {
-                holder.likesCount.setVisibility(View.GONE);
-            }
-            holder.likeBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (AccessToken.getCurrentAccessToken() != null) {
-                        Log.e(TAG, "onClick: ");
-                        likeObject(view, feed.getId());
-                    } else {
-                        parentFrag.getActivityInstance().login();
-                    }
-                }
-            });
-            holder.shareBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (AccessToken.getCurrentAccessToken() != null) {
-                        Log.e(TAG, "onClick: ");
-                        shareObject(feed.getId());
-                    } else {
-//                        LoginManager.getInstance().logInWithReadPermissions(parentFrag, "pro");
-                    }
-                }
-            });
+        try{
+            setUpFeedCard(feed, holder);
         } catch (Exception e) {
             Log.e(TAG, "onBindViewHolder: " + e.toString());
         }
+    }
+
+    private void setUpFeedCard(FbFeed feed, FeedViewHolder holder)throws Exception {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+//            Log.e(TAG, "onBindViewHolder: " + feed.toString());
+                setText(holder.name, feed.getFromName());
+                holder.statusMsg.setText(Html.fromHtml(feed.getMessage()));
+                setText(holder.timeStamp, feed.getCreate_time());
+                if (feed.getFull_picture() != null || feed.getPicture() != ""){
+                    parentFrag.getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Glide.with(parentFrag)
+                                .load(feed.getFull_picture())
+                                .asBitmap()
+                                .centerCrop()
+                                .into(holder.feedImg);
+                        }
+                    });
+                    holder.feedImg.setVisibility(View.VISIBLE);
+                } else {
+                    holder.feedImg.setVisibility(View.GONE);
+                }
+                Log.e(TAG, "onBindViewHolder: " + feed.getLikesCount());
+//            setText(holder.likesCount, feed.getLikesCount());
+                if (feed.getLikesCount() != null || feed.getLikesCount() != ""){
+                    holder.likesCount.setText(feed.getLikesCount() + " Likes");
+                } else {
+                    holder.likesCount.setVisibility(View.GONE);
+                }
+                holder.likeBtn.setOnClickListener(view -> {
+//                    if (AccessToken.getCurrentAccessToken() != null) {
+//                        Log.e(TAG, "onClick: ");
+//                        likeObject(view, feed.getId());
+//                    } else {
+//                        parentFrag.getActivityInstance().login();
+//                    }
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse("https://www.facebook.com/" + feed.getId()));
+                    parentFrag.getActivity().startActivity(i);
+                });
+                holder.shareBtn.setOnClickListener(view -> {
+//                    if (AccessToken.getCurrentAccessToken() != null) {
+//                        Log.e(TAG, "onClick: ");
+//                        shareObject(feed.getId());
+//                    } else {
+//                        LoginManager.getInstance().logInWithReadPermissions(parentFrag, "pro");
+//                    }
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse("https://www.facebook.com/" + feed.getId()));
+                    parentFrag.getActivity().startActivity(i);
+                });
+            }
+        }).start();
     }
 
     private void setText (TextView view, String text) {
@@ -143,14 +156,12 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
                 "/" + id + "/likes",
                 null,
                 HttpMethod.GET,
-                new GraphRequest.Callback() {
-                    public void onCompleted(GraphResponse response) {
-                        Log.e(TAG, "onCompleted: " + response);
-                        LinearLayout ll = (LinearLayout) view;
-                        TextView text = (TextView)ll.getChildAt(0);
-                        text.setText("Liked");
-                        ll.setClickable(false);
-                    }
+                response -> {
+                    Log.e(TAG, "onCompleted: " + response);
+                    LinearLayout ll = (LinearLayout) view;
+                    TextView text = (TextView)ll.getChildAt(0);
+                    text.setText("Liked");
+                    ll.setClickable(false);
                 }
         ).executeAsync();
     }

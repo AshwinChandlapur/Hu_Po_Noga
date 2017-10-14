@@ -69,9 +69,7 @@
         <ImageView
             android:id="@+id/feedImage1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:scaleType="fitXY"
+            android:layout_height="200dp"
             android:visibility="visible" />
 
         <TextView
@@ -88,10 +86,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
                 <LinearLayout
                     android:orientation="vertical"
                     android:id="@+id/likeBtn"
@@ -104,7 +98,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:text="Like"/>
                 </LinearLayout>
                 <LinearLayout
@@ -124,9 +118,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Share"
-                        android:visibility="gone"/>
+                        android:visibility="visible"/>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

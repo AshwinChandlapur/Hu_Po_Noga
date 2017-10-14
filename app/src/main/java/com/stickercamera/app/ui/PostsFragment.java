@@ -1,6 +1,7 @@
 package com.stickercamera.app.ui;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -37,6 +38,7 @@ public class PostsFragment extends Fragment {
     private onFragmentInteractionListener mListener;
     private TextView noPosts;
     private RecyclerView postData;
+    private ProgressDialog progressDialog;
     public PostsFragment() {
         // Required empty public constructor
     }
@@ -58,9 +60,12 @@ public class PostsFragment extends Fragment {
     }
 
     private void  getPostsData () {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Fetching Data...");
+        progressDialog.show();
         AccessToken aT = null;
         String url = getString(R.string.fb_page_id);
-        String fields = "fields=created_time,message,description,story,id,type,picture,full_picture,from,likes&limit=10";
+        String fields = "fields=created_time,message,description,story,id,type,picture,full_picture,from,likes.limit(1).summary(true)&limit=10";
         if (AccessToken.getCurrentAccessToken() != null){
             aT = AccessToken.getCurrentAccessToken();
         } else {
@@ -92,6 +97,7 @@ public class PostsFragment extends Fragment {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        progressDialog.hide();
                     }
                 }
         ).executeAsync();

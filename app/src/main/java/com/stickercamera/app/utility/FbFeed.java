@@ -1,6 +1,5 @@
 package com.stickercamera.app.utility;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -180,8 +179,9 @@ public class FbFeed {
             }
             if (resObj.has("likes")){
                 JSONObject likes = resObj.getJSONObject("likes");
-                JSONArray data = likes.getJSONArray("data");
-                feed.setLikesCount(String.valueOf(data.length()));
+                JSONObject summary = likes.getJSONObject("summary");
+                if (summary.has("total_count"))
+                    feed.setLikesCount(summary.getString("total_count"));
             } else {
                 feed.setLikesCount("");
             }
