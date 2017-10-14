@@ -59,6 +59,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cardNameText"
         android:textSize="18sp"
+        android:textColor="#000000"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="@+id/votercard"
         android:layout_marginLeft="8dp"

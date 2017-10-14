@@ -1,15 +1,18 @@
 package com.stickercamera.app.camera.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.common.util.ImageLoaderUtils;
 import com.github.skykai.stickercamera.R;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.stickercamera.app.model.Addon;
 
@@ -65,11 +68,14 @@ public class StickerToolAdapter extends BaseAdapter {
         return showItem(convertView, holder, effect);
     }
 
-    private View showItem(View convertView, EffectHolder holder, final Addon sticker) {
+    private View showItem(View convertView, EffectHolder holder, Addon sticker) {
+
+        DisplayImageOptions options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.loader).showImageForEmptyUri(R.drawable.loader).showImageOnFail(R.drawable.loader).cacheInMemory(true).cacheOnDisk(true).considerExifParams(false).bitmapConfig(Bitmap.Config.RGB_565).build();
 
         holder.container.setVisibility(View.GONE);
-        ImageLoaderUtils.displayDrawableImage(sticker.getId() + "", holder.logo, null);
-
+        ImageLoaderUtils.displayDrawableImage(sticker.getId() + "", holder.logo, options,mContext);//Instead of options null was there.THis is your change.
+//        Toast.makeText(mContext.getApplicationContext(),String.valueOf(holder.logo),Toast.LENGTH_LONG).show();
+//        Toast.makeText(mContext.getApplicationContext(),String.valueOf(sticker.getId()),Toast.LENGTH_LONG).show();
         return convertView;
     }
 
