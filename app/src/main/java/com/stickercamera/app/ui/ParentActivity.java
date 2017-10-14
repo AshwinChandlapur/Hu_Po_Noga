@@ -40,6 +40,7 @@ import java.util.Arrays;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -139,14 +140,30 @@ public class ParentActivity extends AppCompatActivity
         int cacheSize = 10 * 1024 * 1024; // 10 MB
         Cache cache = new Cache(getCacheDir(), cacheSize);
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+//        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+//                .cache(cache)
+//                .build();
+
+        OkHttpClient httpClient = new OkHttpClient.Builder()
                 .cache(cache)
+                .addInterceptor(chain -> {
+                    try {
+                        return chain.proceed(chain.request());
+                    } catch (Exception e) {
+                        Request offlineRequest = chain.request().newBuilder()
+                                .header("Cache-Control", "public, only-if-cached," +
+                                        "max-stale=" + 60 * 60 * 24)
+                                .build();
+                        return chain.proceed(offlineRequest);
+                    }
+                })
                 .build();
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com")
                 //    https://raw.githubusercontent.com/AshwinChandlapur/ImgLoader/gh-pages/example.json
-                .client(okHttpClient)
+                .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RequestInterface request = retrofit.create(RequestInterface.class);

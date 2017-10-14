@@ -44,10 +44,10 @@ public class ImageLoaderUtils {
      */
 
 
-    public static void displayDrawableImage(String uri, ImageView imageView, DisplayImageOptions options, Context mContext) {
+    public static void  displayDrawableImage(String uri, ImageView imageView, DisplayImageOptions options, Context mContext) {
 
         DisplayImageOptions option = new DisplayImageOptions.Builder()
-                .resetViewBeforeLoading()
+                .resetViewBeforeLoading(true)
                 .showImageOnLoading(R.drawable.loader)
                 .showImageForEmptyUri(R.drawable.loader)
                 .showImageOnFail(R.drawable.loader)

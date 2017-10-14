@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "54520525515",
+    "firebase_url": "https://humblepoliticiannnograj.firebaseio.com",
+    "project_id": "humblepoliticiannnograj",
+    "storage_bucket": "humblepoliticiannnograj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54520525515:android:038a4f9e2f304353",
+        "android_client_info": {
+          "package_name": "humble.politiciann.nograj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54520525515-r8ch9sjlbno0vlkfc088h0apavp76ni5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA90_BYQmpMX90gb3051uh-iyB16bXQUYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
