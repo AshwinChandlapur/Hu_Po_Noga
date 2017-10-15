@@ -38,24 +38,24 @@ public class ImageLoaderUtils {
      *
      */
 
-
-    public static final int[] imageurl = new int[]{
-            R.drawable.coat,
-            R.drawable.humble,
-            R.drawable.humbly,
-            R.drawable.mestru,
-            R.drawable.royal,
-            R.drawable.royally,
-            R.drawable.dppic,
-            R.drawable.topi,
-            R.drawable.facts,
-            R.drawable.glasses,
-            R.drawable.namaskara,
-            R.drawable.mike,
-            R.drawable.speaker,
-            R.drawable.goldtopi,
-            R.drawable.ladooframe
-    };
+//
+//    public static final int[] imageurl = new int[]{
+//            R.drawable.coat,
+//            R.drawable.humble,
+//            R.drawable.humbly,
+//            R.drawable.mestru,
+//            R.drawable.royal,
+//            R.drawable.royally,
+//            R.drawable.dppic,
+//            R.drawable.topi,
+//            R.drawable.facts,
+//            R.drawable.glasses,
+//            R.drawable.namaskara,
+//            R.drawable.mike,
+//            R.drawable.speaker,
+//            R.drawable.goldtopi,
+//            R.drawable.ladooframe
+//    };
 
     public static void displayLocalImage(String uri, ImageView imageView, DisplayImageOptions options) {
         DisplayImageOptions option = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.loader).showImageForEmptyUri(R.drawable.loader).showImageOnFail(R.drawable.loader).cacheInMemory(true).cacheOnDisk(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
