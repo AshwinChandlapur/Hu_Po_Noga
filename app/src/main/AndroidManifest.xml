@@ -15,7 +15,7 @@
         tools:node="remove" />
 
     <application
-        android:name="com.stickercamera.app.ui.MyApplication"
+        android:name="com.stickercamera.App"
         android:allowBackup="true"
         android:configChanges="orientation"
         android:screenOrientation="portrait"

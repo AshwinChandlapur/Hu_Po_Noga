@@ -13,6 +13,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+import com.onesignal.OneSignal;
 
 /**
  * Created by sky on 2015/7/6.
@@ -40,6 +41,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         initImageLoader();
+        OneSignal.startInit(this).init();
         mInstance = this;
     }
 

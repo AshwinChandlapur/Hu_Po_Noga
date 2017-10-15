@@ -71,7 +71,6 @@ public class ParentActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +91,7 @@ public class ParentActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
 
 
         cbManager = CallbackManager.Factory.create();
@@ -280,7 +280,12 @@ public class ParentActivity extends AppCompatActivity
 
         }
         else if(id ==R.id.nav_tickets){
-
+            String str = "https://in.bookmyshow.com/movies/humble-politician-nograj/ET00056918/";
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT,str);
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
 
         }
         else if (id ==R.id.nav_home){
