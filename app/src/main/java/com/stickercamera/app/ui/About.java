@@ -1,4 +1,4 @@
-package com.stickercamera.app.ui.mainfeed;
+package com.stickercamera.app.ui;
 
 
 import android.os.Bundle;
