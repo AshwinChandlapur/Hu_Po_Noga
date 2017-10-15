@@ -2,12 +2,14 @@ package com.stickercamera.app.ui;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,8 +62,8 @@ public class PostsFragment extends Fragment {
     }
 
     private void  getPostsData () {
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Fetching Data...");
+        progressDialog = new ProgressDialog(this.getContext());
+        progressDialog.setMessage("Brewing Content...");
         progressDialog.show();
         AccessToken aT = null;
         String url = getString(R.string.fb_page_id);
@@ -97,10 +99,37 @@ public class PostsFragment extends Fragment {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        progressDialog.hide();
+                        progressDialog.dismiss();
                     }
                 }
         ).executeAsync();
     }
+
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
+
+                    Intent i = new Intent(getActivity(),ParentActivity.class);
+                    startActivity(i);
+
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
+    }
+
 
 }

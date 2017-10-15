@@ -59,7 +59,7 @@
             android:background="@color/transparent"
             android:maxHeight="@dimen/height_16px"
             android:maxWidth="@dimen/height_16px"
-            android:src="@drawable/share" />
+            android:src="@drawable/sharephoto" />
 
 
         <Button

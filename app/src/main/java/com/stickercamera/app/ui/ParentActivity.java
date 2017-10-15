@@ -1,6 +1,7 @@
 package com.stickercamera.app.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -282,10 +283,13 @@ public class ParentActivity extends AppCompatActivity
         else if(id ==R.id.nav_tickets){
             String str = "https://in.bookmyshow.com/movies/humble-politician-nograj/ET00056918/";
             Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT,str);
-            sendIntent.setType("text/plain");
+            sendIntent = new Intent(Intent.ACTION_VIEW);
+            sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+           /// sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.setData(Uri.parse(str));
             startActivity(sendIntent);
+
+
 
         }
         else if (id ==R.id.nav_home){
@@ -300,6 +304,9 @@ public class ParentActivity extends AppCompatActivity
                             "♥ Vote for Nograj! Becaz He's Humble! :D ♥\n\nDownload it Now:\n" + str);
                     sendIntent.setType("text/plain");
                     startActivity(sendIntent);
+
+
+
 
 
         } else if (id == R.id.nav_aboutus) {

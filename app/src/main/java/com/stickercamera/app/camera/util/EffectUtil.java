@@ -45,6 +45,9 @@ public class EffectUtil {
         addonList.add(new Addon(R.drawable.facts));
         addonList.add(new Addon(R.drawable.cutitnew));
         addonList.add(new Addon(R.drawable.glasses));
+        addonList.add(new Addon(R.drawable.namaskara));
+        addonList.add(new Addon(R.drawable.mike));
+        addonList.add(new Addon(R.drawable.speaker));
         addonList.add(new Addon(R.drawable.goldtopi));
         addonList.add(new Addon(R.drawable.ladooframe));
     }
