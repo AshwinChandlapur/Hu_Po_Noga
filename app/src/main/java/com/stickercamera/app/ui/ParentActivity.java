@@ -19,9 +19,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -83,6 +86,14 @@ public class ParentActivity extends AppCompatActivity
 //                        .setAction("Action", null).show();
             }
         });
+
+        ImageView bgimage=(ImageView)findViewById(R.id.bgimage);
+        Glide.with(this).load("https://raw.githubusercontent.com/AshwinChandlapur/Trial/master/bgbg.jpg")
+                .thumbnail(0.5f)
+                .crossFade()
+                .error(R.drawable.bgbg)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(bgimage);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

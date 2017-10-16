@@ -18,7 +18,7 @@
         android:layout_height="250dp"
         android:id="@+id/newsimage"
         android:scaleType="fitXY"
-        android:src="@drawable/background"/>
+        android:src="@drawable/bg"/>
 
 
         <ImageView

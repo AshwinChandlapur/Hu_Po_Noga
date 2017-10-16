@@ -16,6 +16,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.github.skykai.stickercamera.R;
 import com.stickercamera.app.ui.ParentActivity;
 
@@ -66,12 +67,20 @@ public class MainFeed extends Fragment {
             youtube.setVisibility(View.GONE);
             Glide.with(getActivity())
                     .load(url)
+                    .thumbnail(0.5f)
+                    .crossFade()
+                    .error(R.drawable.bg)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(newsimage);
 
         }else{
             youtube.setVisibility(View.VISIBLE);
             Glide.with(getActivity())
                     .load(url)
+                    .thumbnail(0.5f)
+                    .error(R.drawable.bg)
+                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(newsimage);
 
             youtube.setOnClickListener(new View.OnClickListener() {
