@@ -94,6 +94,8 @@ public class VoterID extends Fragment {
         getId=(Button) rootView.findViewById(R.id.getID);
         cardNameText = (TextView)rootView.findViewById(R.id.cardNameText);
 
+        getId.setEnabled(false);
+
 
 
 
@@ -101,6 +103,7 @@ public class VoterID extends Fragment {
         choosePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getId.setEnabled(true);
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, PICK_IMAGE_REQUEST);

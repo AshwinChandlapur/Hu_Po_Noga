@@ -2,10 +2,14 @@ package com.stickercamera.app.ui;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
+import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -33,12 +37,21 @@ import com.common.util.FileUtils;
 import com.common.util.StringUtils;
 import com.customview.LabelView;
 import com.github.skykai.stickercamera.R;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.melnykov.fab.FloatingActionButton;
 import com.stickercamera.App;
 import com.stickercamera.AppConstants;
 import com.stickercamera.app.camera.CameraManager;
+import com.stickercamera.app.camera.util.EffectUtil;
 import com.stickercamera.app.model.FeedItem;
 import com.stickercamera.app.model.TagItem;
+import com.stickercamera.app.ui.mainfeed.MainFeed;
 import com.stickercamera.base.BaseActivity;
 
 import org.json.JSONArray;
@@ -54,7 +67,7 @@ import butterknife.InjectView;
 import de.greenrobot.event.EventBus;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements RewardedVideoAdListener {
 
     @InjectView(R.id.fab)
     FloatingActionButton fab;
@@ -62,12 +75,19 @@ public class MainActivity extends BaseActivity {
     RecyclerView mRecyclerView;
     private List<FeedItem> feedList;
     private PictureAdapter mAdapter;
+    private InterstitialAd interstitial;
+    private RewardedVideoAd mAd;
+    int noOfVidAd=5;
+
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        View parentLayout = findViewById(android.R.id.content);
         ButterKnife.inject(this);
         EventBus.getDefault().register(this);
         initView();
@@ -81,9 +101,155 @@ public class MainActivity extends BaseActivity {
             CameraManager.getInst().openCamera(MainActivity.this);
         } else {
             mAdapter.setList(feedList);
+
+
+            mAd = MobileAds.getRewardedVideoAdInstance(this);
+            mAd.setRewardedVideoAdListener(this);
+
+
+
+
+            //Interstitial Ad Space
+            AdRequest adRequests = new AdRequest.Builder()
+                    .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37").build();
+            interstitial = new InterstitialAd(MainActivity.this);
+            interstitial.setAdUnitId(getString(R.string.interstitial_ad_unit));
+            interstitial.loadAd(adRequests);
+
+
+
+
+
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            if (!prefs.getBoolean("firstTime", false)) {
+                // <---- run your one time code here
+                Snackbar.make(parentLayout,"Watch a Complete Video ad to Gain Bonus Stickers",Snackbar.LENGTH_LONG).show();
+
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadRewardedVideoAd();
+                    }
+                }, 2000);
+
+                // mark first time has runned.
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("firstTime", true);
+                editor.commit();
+            }else{
+
+                interstitial.setAdListener(new AdListener() {
+                    @Override
+                    public void onAdLoaded() {
+                        // Code to be executed when an ad finishes loading.
+                        Log.i("Ads", "onAdLoaded");
+                        if(Math.random()>0.6)
+                        {
+                            displayInterstitial();}
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        // Code to be executed when an ad request fails.
+                        Log.i("Ads", "onAdFailedToLoad");
+                    }
+
+                    @Override
+                    public void onAdOpened() {
+                        // Code to be executed when the ad is displayed.
+                        Log.i("Ads", "onAdOpened");
+                    }
+
+                    @Override
+                    public void onAdLeftApplication() {
+                        // Code to be executed when the user has left the app.
+                        Log.i("Ads", "onAdLeftApplication");
+                    }
+
+                    @Override
+                    public void onAdClosed() {
+                        // Code to be executed when when the interstitial ad is closed.
+//                interstitial.loadAd(new AdRequest.Builder().build());
+                        Log.i("Ads", "onAdClosed");
+                    }
+                });
+                //Interstitial ad space
+
+            }
+
         }
 
 
+    }
+
+    // Required to reward the user.
+    @Override
+    public void onRewarded(RewardItem reward) {
+        int i =1;
+        EffectUtil effectUtil = new EffectUtil();
+        effectUtil.setNumber(i);
+        Toast.makeText(this, "Congratulations! You Just got 5 Nograj Stickers " , Toast.LENGTH_LONG).show();
+        // Reward the user.
+    }
+
+    // The following listener methods are optional.
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+        Toast.makeText(this, "onRewardedVideoAdLeftApplication",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Toast.makeText(this, "You Closed the video Ad. So No Sticker :(", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int errorCode) {
+        Toast.makeText(this, "Connect to Internet, to Enjoy Seamless experience.", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+        if (mAd.isLoaded()) {
+            mAd.show();
+        }
+//        Toast.makeText(this, "onRewardedVideoAdLoaded", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+//        Toast.makeText(this, "onRewardedVideoAdOpened", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+//        Toast.makeText(this, "onRewardedVideoStarted", Toast.LENGTH_SHORT).show();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    private void loadRewardedVideoAd() {
+        mAd.loadAd(getString(R.string.rewarded_ad_unit), new AdRequest.Builder().build());
+    }
+
+    public void displayInterstitial() {
+// If Ads are loaded, show Interstitial else show nothing.
+        if ((interstitial.isLoaded()) && (interstitial!=null)) {
+            interstitial.show();
+        }
     }
 
 

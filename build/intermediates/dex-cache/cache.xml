@@ -7,17 +7,8 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="01039d47b1ca14a6975be995825940b1629fc124">
+        sha1="c50f1d4f8404d92a85cfbc3de7ed690483146e1c">
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fbc41114faca73e9a1f2a14066eaa19cc4b48f36/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/ImageViewTouch/build/intermediates/bundles/default/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="2e0092077a204409446e0da6b4ea8a9efa22400c">
-        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_0973931592cb69a48aab82c99febb122f36e41d0.jar" />
     </item>
     <item
         is-multidex="true"
@@ -27,33 +18,6 @@
         revision="26.0.2"
         sha1="9f675e9a1b2bf1224183005752a9214226e8aa8e">
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/transforms/dex/debug/folders/1000/2/fastjson-1.2.5_2ee9fc9657ff645e55d8bd03bd1a1dff0fce5375/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/libs/fastjson-1.2.5.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="9f675e9a1b2bf1224183005752a9214226e8aa8e">
-        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/fastjson-1.2.5_2ee9fc9657ff645e55d8bd03bd1a1dff0fce5375.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/Gpu-Image/build/intermediates/bundles/default/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="be8448d22b289dc0d7b8db317df8229bf0a37ffb">
-        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_76cb16fe512839e219f8fbd0a8619e9c836a0980.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/libs/universal-image-loader-1.9.4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
-        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_3de4b17e01d713153078c5e3eb4cf0a478049622.jar" />
     </item>
     <item
         is-multidex="true"

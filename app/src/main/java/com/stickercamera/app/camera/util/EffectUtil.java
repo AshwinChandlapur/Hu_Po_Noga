@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,14 +33,17 @@ public class EffectUtil {
 
     public static List<Addon> addonList                 = new ArrayList<Addon>();
     private static List<MyHighlightView> hightlistViews = new CopyOnWriteArrayList<MyHighlightView>();
+    private int number;
+    private static int a;
+
 
     static {
         addonList.add(new Addon(R.drawable.coat));
-        addonList.add(new Addon(R.drawable.humble));
+//        addonList.add(new Addon(R.drawable.humble));
         addonList.add(new Addon(R.drawable.humbly));
         addonList.add(new Addon(R.drawable.mestru));
         addonList.add(new Addon(R.drawable.royal));
-        addonList.add(new Addon(R.drawable.royally));
+//        addonList.add(new Addon(R.drawable.royally));
         addonList.add(new Addon(R.drawable.dppic));
         addonList.add(new Addon(R.drawable.topi));
         addonList.add(new Addon(R.drawable.facts));
@@ -51,6 +55,26 @@ public class EffectUtil {
         addonList.add(new Addon(R.drawable.goldtopi));
         addonList.add(new Addon(R.drawable.ladooframe));
     }
+
+
+    public int getNumber(){
+        return number ;
+    }
+
+    public void setNumber(int number){
+
+        this.number = number;
+        if(this.number == 1)
+        {
+            addonList.add(new Addon(R.drawable.fivehead));
+            addonList.add(new Addon(R.drawable.humble));
+            addonList.add(new Addon(R.drawable.royally));
+//            addonList.add(new Addon(R.drawable.speaker));
+//            addonList.add(new Addon(R.drawable.goldtopi));
+//            addonList.add(new Addon(R.drawable.ladooframe));
+        }
+    }
+
 
     public static void clear() {
         hightlistViews.clear();

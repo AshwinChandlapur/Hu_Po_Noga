@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,6 +33,13 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 
 import com.github.skykai.stickercamera.R;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.stickercamera.app.ui.mainfeed.AndroidVersion;
 import com.stickercamera.app.ui.mainfeed.DataAdapter;
 import com.stickercamera.app.ui.mainfeed.JSONResponse;
@@ -65,14 +71,33 @@ public class ParentActivity extends AppCompatActivity
     FragmentTransaction ft;
     CallbackManager cbManager;
     AccessTokenTracker accessTokenTracker;
+    private InterstitialAd interstitial;
+
+    int i =0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent);
+
+
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        MobileAds.initialize(this, getString(R.string.app_id));
+
+        //Interstitial Ad Space
+        AdRequest adRequests = new AdRequest.Builder()
+                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37").build();
+        interstitial = new InterstitialAd(ParentActivity.this);
+        interstitial.setAdUnitId(getString(R.string.interstitial_ad_unit));
+        interstitial.loadAd(adRequests);
+
+        //Interstitial ad space
+
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -88,7 +113,7 @@ public class ParentActivity extends AppCompatActivity
         });
 
         ImageView bgimage=(ImageView)findViewById(R.id.bgimage);
-        Glide.with(this).load("https://raw.githubusercontent.com/AshwinChandlapur/Trial/master/bgbg.jpg")
+        Glide.with(this).load("https://raw.githubusercontent.com/AshwinChandlapur/Trial/master/bgbg50.jpg")
                 .thumbnail(0.5f)
                 .crossFade()
                 .error(R.drawable.bgbg)
@@ -142,8 +167,27 @@ public class ParentActivity extends AppCompatActivity
         recyclerView.setLayoutManager(layoutManager);
         loadJSON();
 
+
+        recyclerView.setOnFlingListener(new RecyclerView.OnFlingListener() {
+            @Override
+            public boolean onFling(int velocityX, int velocityY) {
+                i++;
+                Log.d("Fliging","Flingin");
+                if(i>7)
+                {displayInterstitial();}
+                return false;
+            }
+        });
+
     }
 
+
+    public void displayInterstitial() {
+// If Ads are loaded, show Interstitial else show nothing.
+        if ((interstitial.isLoaded()) && (interstitial!=null)) {
+            interstitial.show();
+        }
+    }
 
 
 
@@ -152,9 +196,7 @@ public class ParentActivity extends AppCompatActivity
         int cacheSize = 10 * 1024 * 1024; // 10 MB
         Cache cache = new Cache(getCacheDir(), cacheSize);
 
-//        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-//                .cache(cache)
-//                .build();
+
 
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .cache(cache)
@@ -199,20 +241,6 @@ public class ParentActivity extends AppCompatActivity
     }
 
 
-
-
-
-
-//    @Override
-//    public void onFragmentInteraction(Fragment fragment) {
-//        switchFragment(fragment);
-//    }
-//
-//    @Override
-//    public void login() {
-//        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
-//    }
-
     public void switchFragment (Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.app_bar, fragment);
@@ -242,27 +270,7 @@ public class ParentActivity extends AppCompatActivity
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.parent, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -321,6 +329,8 @@ public class ParentActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_aboutus) {
+//            Intent i = new Intent(getApplicationContext(),AdsActivity.class);
+//            startActivity(i);
 
         }
 

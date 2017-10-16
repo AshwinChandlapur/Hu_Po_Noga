@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -20,6 +21,10 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.github.skykai.stickercamera.R;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.stickercamera.app.utility.FbFeed;
 import com.stickercamera.app.utility.FeedAdapter;
 import com.stickercamera.app.utility.onFragmentInteractionListener;
@@ -41,6 +46,8 @@ public class PostsFragment extends Fragment {
     private TextView noPosts;
     private RecyclerView postData;
     private ProgressDialog progressDialog;
+    private InterstitialAd interstitial;
+    int i=0;
     public PostsFragment() {
         // Required empty public constructor
     }
@@ -57,6 +64,58 @@ public class PostsFragment extends Fragment {
         noPosts = (TextView) view.findViewById(R.id.noContentText);
         postData = (RecyclerView) view.findViewById(R.id.postsData);
         getPostsData();
+
+
+        MobileAds.initialize(getActivity(), getString(R.string.app_id));
+
+        //Interstitial Ad Space
+        AdRequest adRequests = new AdRequest.Builder()
+                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37").build();
+        interstitial = new InterstitialAd(getActivity());
+        interstitial.setAdUnitId(getString(R.string.interstitial_ad_unit));
+        interstitial.loadAd(adRequests);
+
+        interstitial.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                Log.i("Ads", "onAdLoaded");
+                if(Math.random()>0.5){
+                    displayInterstitial();
+                }
+
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+                Log.i("Ads", "onAdFailedToLoad");
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+                Log.i("Ads", "onAdOpened");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+                Log.i("Ads", "onAdLeftApplication");
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when when the interstitial ad is closed.
+//                interstitial.loadAd(new AdRequest.Builder().build());
+                Log.i("Ads", "onAdClosed");
+            }
+        });
+        //Interstitial ad space
+
+
+
+
         return view;
 //        return inflater.inflate(R.layout.fragment_posts, container, false);
     }
@@ -103,6 +162,15 @@ public class PostsFragment extends Fragment {
                     }
                 }
         ).executeAsync();
+    }
+
+
+
+    public void displayInterstitial() {
+// If Ads are loaded, show Interstitial else show nothing.
+        if ((interstitial.isLoaded()) && (interstitial!=null)) {
+            interstitial.show();
+        }
     }
 
 

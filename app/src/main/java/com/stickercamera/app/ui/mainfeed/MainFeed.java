@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,6 +20,10 @@ import android.widget.VideoView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.github.skykai.stickercamera.R;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.stickercamera.app.ui.ParentActivity;
 
 
@@ -29,6 +35,8 @@ public class MainFeed extends Fragment {
     String name,url,content,videoUrl;
     TextView newsname,newscontent;
     ImageView newsimage,youtube;
+    private InterstitialAd interstitial;
+    int i = 0;
 
     public MainFeed() {
         // Required empty public constructor
@@ -48,6 +56,34 @@ public class MainFeed extends Fragment {
              content = bundle.getString("con");
              videoUrl = bundle.getString("videoUrl");
         }
+
+
+        MobileAds.initialize(getActivity(), getString(R.string.app_id));
+
+        //Interstitial Ad Space
+        AdRequest adRequests = new AdRequest.Builder()
+                .addTestDevice("E1C583B224120C3BEF4A3DB0177A7A37").build();
+        interstitial = new InterstitialAd(getActivity());
+        interstitial.setAdUnitId(getString(R.string.interstitial_ad_unit));
+        interstitial.loadAd(adRequests);
+
+
+        rootView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                i++;
+                if(i>20)
+                {displayInterstitial();}
+                Log.d("Touching","Touching");
+                return false;
+            }
+        });
+
+        //Interstitial ad space
+
+
+
+
 
         newsname = (TextView)rootView.findViewById(R.id.newsname);
         newscontent = (TextView)rootView.findViewById(R.id.newscontent);
@@ -113,6 +149,14 @@ public class MainFeed extends Fragment {
 
 
         return rootView;
+    }
+
+
+    public void displayInterstitial() {
+// If Ads are loaded, show Interstitial else show nothing.
+        if ((interstitial.isLoaded()) && (interstitial!=null)) {
+            interstitial.show();
+        }
     }
 
 
