@@ -72,7 +72,7 @@ public class MainFeed extends Fragment {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 i++;
-                if(i>20)
+                if(i>7)
                 {displayInterstitial();}
                 Log.d("Touching","Touching");
                 return false;

@@ -80,7 +80,7 @@ public class PostsFragment extends Fragment {
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
                 Log.i("Ads", "onAdLoaded");
-                if(Math.random()>0.5){
+                if(Math.random()>0.6){
                     displayInterstitial();
                 }
 

@@ -1,9 +1,13 @@
 package com.stickercamera.app.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
@@ -63,7 +67,7 @@ public class ParentActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private ArrayList<AndroidVersion> data;
     private DataAdapter adapter;
-
+    boolean connection;
 
 
     private String TAG = "ParentActivity";
@@ -72,6 +76,8 @@ public class ParentActivity extends AppCompatActivity
     CallbackManager cbManager;
     AccessTokenTracker accessTokenTracker;
     private InterstitialAd interstitial;
+    View parentLayout;
+    boolean isConnection;
 
     int i =0;
 
@@ -80,7 +86,7 @@ public class ParentActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent);
-
+        parentLayout = findViewById(android.R.id.content);
 
 
 
@@ -88,6 +94,12 @@ public class ParentActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         MobileAds.initialize(this, getString(R.string.app_id));
+         isConnection=haveNetworkConnection();
+
+        if(isConnection == false)
+        {
+            Snackbar.make(parentLayout,"Connect To Internet for Seamless Experience.",Snackbar.LENGTH_LONG).show();
+        }
 
         //Interstitial Ad Space
         AdRequest adRequests = new AdRequest.Builder()
@@ -97,6 +109,8 @@ public class ParentActivity extends AppCompatActivity
         interstitial.loadAd(adRequests);
 
         //Interstitial ad space
+
+
 
 
 
@@ -187,6 +201,35 @@ public class ParentActivity extends AppCompatActivity
         if ((interstitial.isLoaded()) && (interstitial!=null)) {
             interstitial.show();
         }
+    }
+
+
+    private boolean haveNetworkConnection() {
+        boolean haveConnectedWifi = false;
+        boolean haveConnectedMobile = false;
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+        for (NetworkInfo ni : netInfo) {
+            if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+            {
+                if (ni.isConnected())
+                {
+                    haveConnectedWifi = true;
+                }
+
+            }
+                if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                {
+                    if (ni.isConnected())
+                    {
+                        haveConnectedMobile = true;
+                    }
+
+                }
+
+        }
+        return haveConnectedWifi || haveConnectedMobile;
     }
 
 
@@ -329,8 +372,11 @@ public class ParentActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_aboutus) {
-//            Intent i = new Intent(getApplicationContext(),AdsActivity.class);
-//            startActivity(i);
+            fragment = new About();
+            ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.app_bar, fragment);
+            ft.addToBackStack(null);
+            ft.commit();
 
         }
 

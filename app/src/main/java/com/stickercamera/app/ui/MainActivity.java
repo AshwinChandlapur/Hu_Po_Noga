@@ -77,10 +77,6 @@ public class MainActivity extends BaseActivity implements RewardedVideoAdListene
     private PictureAdapter mAdapter;
     private InterstitialAd interstitial;
     private RewardedVideoAd mAd;
-    int noOfVidAd=5;
-
-
-
 
 
     @Override
@@ -124,8 +120,12 @@ public class MainActivity extends BaseActivity implements RewardedVideoAdListene
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             if (!prefs.getBoolean("firstTime", false)) {
                 // <---- run your one time code here
-                Snackbar.make(parentLayout,"Watch a Complete Video ad to Gain Bonus Stickers",Snackbar.LENGTH_LONG).show();
-
+                Snackbar.make(parentLayout,"Watch the Complete Video ad & get Bonus Stickers",Snackbar.LENGTH_INDEFINITE).show();
+                Toast.makeText(this,"Video Ad will appear in 5 seconds",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Video Ad will appear in 4 seconds",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Video Ad will appear in 3 seconds",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Video Ad will appear in 2 seconds",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Video Ad will appear in 1 seconds",Toast.LENGTH_SHORT).show();
 
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -133,7 +133,7 @@ public class MainActivity extends BaseActivity implements RewardedVideoAdListene
                     public void run() {
                         loadRewardedVideoAd();
                     }
-                }, 2000);
+                }, 5000);
 
                 // mark first time has runned.
                 SharedPreferences.Editor editor = prefs.edit();
@@ -204,7 +204,7 @@ public class MainActivity extends BaseActivity implements RewardedVideoAdListene
 
     @Override
     public void onRewardedVideoAdClosed() {
-        Toast.makeText(this, "You Closed the video Ad. So No Sticker :(", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "You Closed the video Ad :(", Toast.LENGTH_SHORT).show();
     }
 
     @Override

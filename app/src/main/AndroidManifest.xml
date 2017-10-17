@@ -24,6 +24,11 @@
         android:largeHeap="true"
         android:screenOrientation="portrait"
         android:theme="@style/BlueTheme">
+
+        <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
+
         <activity android:name="com.stickercamera.app.ui.MainActivity"></activity>
         <activity
             android:name="com.stickercamera.app.camera.ui.CameraActivity"

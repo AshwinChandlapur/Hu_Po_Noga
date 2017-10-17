@@ -39,11 +39,9 @@ public class EffectUtil {
 
     static {
         addonList.add(new Addon(R.drawable.coat));
-//        addonList.add(new Addon(R.drawable.humble));
         addonList.add(new Addon(R.drawable.humbly));
         addonList.add(new Addon(R.drawable.mestru));
         addonList.add(new Addon(R.drawable.royal));
-//        addonList.add(new Addon(R.drawable.royally));
         addonList.add(new Addon(R.drawable.dppic));
         addonList.add(new Addon(R.drawable.topi));
         addonList.add(new Addon(R.drawable.facts));
@@ -52,7 +50,7 @@ public class EffectUtil {
         addonList.add(new Addon(R.drawable.namaskara));
         addonList.add(new Addon(R.drawable.mike));
         addonList.add(new Addon(R.drawable.speaker));
-        addonList.add(new Addon(R.drawable.goldtopi));
+        addonList.add(new Addon(R.drawable.conii));
         addonList.add(new Addon(R.drawable.ladooframe));
     }
 
@@ -66,12 +64,13 @@ public class EffectUtil {
         this.number = number;
         if(this.number == 1)
         {
+            addonList.add(new Addon(R.drawable.goldtopi));
+            addonList.add(new Addon(R.drawable.coni));
+            addonList.add(new Addon(R.drawable.coniii));
             addonList.add(new Addon(R.drawable.fivehead));
             addonList.add(new Addon(R.drawable.humble));
             addonList.add(new Addon(R.drawable.royally));
-//            addonList.add(new Addon(R.drawable.speaker));
-//            addonList.add(new Addon(R.drawable.goldtopi));
-//            addonList.add(new Addon(R.drawable.ladooframe));
+//
         }
     }
 

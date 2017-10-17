@@ -1,7 +1,10 @@
 package com.stickercamera;
 
 import android.app.Application;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 import com.common.util.DataUtils;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
@@ -13,7 +16,12 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+import com.onesignal.OSNotificationAction;
+import com.onesignal.OSNotificationOpenResult;
 import com.onesignal.OneSignal;
+import com.stickercamera.app.ui.ParentActivity;
+
+import org.json.JSONObject;
 
 /**
  * Created by sky on 2015/7/6.
@@ -41,8 +49,37 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         initImageLoader();
-        OneSignal.startInit(this).init();
+        OneSignal.startInit(this)
+               .setNotificationOpenedHandler(new ExampleNotificationOpenedHandler())
+                .init();
         mInstance = this;
+    }
+
+
+    private class ExampleNotificationOpenedHandler implements OneSignal.NotificationOpenedHandler {
+        // This fires when a notification is opened by tapping on it.
+        @Override
+        public void notificationOpened(OSNotificationOpenResult result) {
+            OSNotificationAction.ActionType actionType = result.action.type;
+            JSONObject data = result.notification.payload.additionalData;
+            String targetUrl;
+
+            if (data != null) {
+                targetUrl = data.optString("targetUrl",null);
+                Log.i(targetUrl,"TargetUrl");
+                if(targetUrl!=null)
+                {
+                    Intent i = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(targetUrl));
+                    i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(i);
+                }
+            }else{
+                Intent i = new Intent(getApplicationContext(), ParentActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+            }
+
+        }
     }
 
 
@@ -110,6 +147,10 @@ public class App extends Application {
     public String getCacheDirPath() {
         return getCacheDir().getAbsolutePath();
     }
+
+
+
+
 
 
 
