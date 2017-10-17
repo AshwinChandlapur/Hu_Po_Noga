@@ -41,14 +41,6 @@ public class About extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
-        Intent intent = getActivity().getIntent();
-        String targetUrl = intent.getExtras().getString("targetUrl");
-        if(targetUrl!=null)
-        {
-            Intent i = new Intent(android.content.Intent.ACTION_VIEW);
-            i.setData(Uri.parse(targetUrl));
-            startActivity(i);
-        }
 
         p1=(CircleImageView)rootView.findViewById(R.id.profile_image1);
         p2=(CircleImageView)rootView.findViewById(R.id.profile_image2);
