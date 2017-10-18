@@ -146,7 +146,7 @@ public class MainActivity extends BaseActivity implements RewardedVideoAdListene
                     public void onAdLoaded() {
                         // Code to be executed when an ad finishes loading.
                         Log.i("Ads", "onAdLoaded");
-                        if(Math.random()>0.6)
+                        if(Math.random()>0.5)
                         {
                             displayInterstitial();}
                     }

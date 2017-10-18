@@ -4,6 +4,7 @@ package com.stickercamera.app.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -79,10 +80,20 @@ public class PostsFragment extends Fragment {
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
-                Log.i("Ads", "onAdLoaded");
-                if(Math.random()>0.6){
-                    displayInterstitial();
-                }
+//                Log.i("Ads", "onAdLoaded");
+//                if(Math.random()>0.9){
+
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        displayInterstitial();
+                    }
+                }, 3000);
+
+
+//                }
 
             }
 

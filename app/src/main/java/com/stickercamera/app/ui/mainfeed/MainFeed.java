@@ -4,6 +4,7 @@ package com.stickercamera.app.ui.mainfeed;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -67,17 +68,67 @@ public class MainFeed extends Fragment {
         interstitial.setAdUnitId(getString(R.string.interstitial_ad_unit));
         interstitial.loadAd(adRequests);
 
-
-        rootView.setOnTouchListener(new View.OnTouchListener() {
+        interstitial.setAdListener(new AdListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                i++;
-                if(i>7)
-                {displayInterstitial();}
-                Log.d("Touching","Touching");
-                return false;
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+//                Log.i("Ads", "onAdLoaded");
+//                if(Math.random()>0.9){
+
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        displayInterstitial();
+                    }
+                }, 2000);
+
+
+//                }
+
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+                Log.i("Ads", "onAdFailedToLoad");
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+                Log.i("Ads", "onAdOpened");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+                Log.i("Ads", "onAdLeftApplication");
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when when the interstitial ad is closed.
+//                interstitial.loadAd(new AdRequest.Builder().build());
+                Log.i("Ads", "onAdClosed");
             }
         });
+        //Interstitial ad space
+
+
+
+
+//        rootView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                i++;
+//                if(i>20)
+//                {displayInterstitial();}
+//                Log.d("Touching","Touching");
+//                return false;
+//            }
+//        });
 
         //Interstitial ad space
 

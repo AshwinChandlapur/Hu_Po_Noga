@@ -255,6 +255,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/libs/universal-image-loader-1.9.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/release/universal-image-loader-1.9.4_3de4b17e01d713153078c5e3eb4cf0a478049622.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/ashwinchandlapur/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/bcacde6a8ccedcc56c127403d26b76072fe6214d/retrofit-2.3.0.jar"
         jumboMode="true"
         optimize="true"
@@ -263,13 +272,13 @@
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/release/retrofit-2.3.0_1f33a2390cfcf9726395107a0c65a78b92cf68f5.jar" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/libs/universal-image-loader-1.9.4.jar"
+        is-multidex="true"
+        jar="/Users/ashwinchandlapur/.android/build-cache/3f6eee45445fe4756abfc889919a421b4f2899a7/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
-        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/release/universal-image-loader-1.9.4_3de4b17e01d713153078c5e3eb4cf0a478049622.jar" />
+        sha1="9bb33606c58ab7293f2fcecabf53375e7a9e216e">
+        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5f928b49e7ae4de6ae8277e7758b6ed565710cd7/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -326,6 +335,15 @@
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/release/classes_c0d30e8958f5f2aedc29ef7488cd2c9e8fcee3a8.jar" />
     </item>
     <item
+        is-multidex="false"
+        jar="/Users/ashwinchandlapur/.android/build-cache/3f6eee45445fe4756abfc889919a421b4f2899a7/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9bb33606c58ab7293f2fcecabf53375e7a9e216e">
+        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/release/classes_5f928b49e7ae4de6ae8277e7758b6ed565710cd7.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/Users/ashwinchandlapur/.android/build-cache/9cae429e537b0f7cf131a306be6073470c38d961/output/jars/classes.jar"
         jumboMode="true"
@@ -367,7 +385,7 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="f00b384603a40b9e7a1c9b8ce010561f5f591f99">
+        sha1="e746a4d1a4777c66014b6a6a9794b0b50ad7b233">
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fbc41114faca73e9a1f2a14066eaa19cc4b48f36/classes.dex" />
     </item>
     <item
@@ -450,15 +468,6 @@
         revision="26.0.2"
         sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
         <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/release/butterknife-6.1.0_e4846d6e6562668bc227a40e506861dbb00733e5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/ashwinchandlapur/.android/build-cache/b1d680b00a4357c54edfe6186708b8552b2a60ca/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.2"
-        sha1="d2b97c728005e4d98f844b286e61adda209cab11">
-        <dex dex="/Users/ashwinchandlapur/Desktop/Hu_Po_Noga/app/build/intermediates/pre-dexed/release/classes_387b1ce243bbc5762e92e69000240d7826a90562.jar" />
     </item>
     <item
         is-multidex="false"

@@ -130,6 +130,7 @@ public class ParentActivity extends AppCompatActivity
         Glide.with(this).load("https://raw.githubusercontent.com/AshwinChandlapur/Trial/master/bgbg50.jpg")
                 .thumbnail(0.5f)
                 .crossFade()
+                .placeholder(R.drawable.bgbg)
                 .error(R.drawable.bgbg)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(bgimage);
@@ -187,7 +188,7 @@ public class ParentActivity extends AppCompatActivity
             public boolean onFling(int velocityX, int velocityY) {
                 i++;
                 Log.d("Fliging","Flingin");
-                if(i>7)
+                if(i>10)
                 {displayInterstitial();}
                 return false;
             }
