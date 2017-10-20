@@ -3,21 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="/home/stpl/google/Hu_Po_Noga/Gpu-Image/build/intermediates/bundles/default/classes.jar"
+        jar="/home/stpl/.android/build-cache/0297a0e07ebc440ccb11251e6aea6e9c1e915ec5/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="324f9c3b9c6214a1da5bc5a00db2b1ff72eac372">
-        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_13b870a9228bef5cba1822dec0fc883688bf7e96.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/stpl/.android/build-cache/586f747c6c45a93f7973f8fa066f89a3901ac340/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.2"
-        sha1="9bb33606c58ab7293f2fcecabf53375e7a9e216e">
-        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_73670888b69f3e33139383db10697b92c402b8c1.jar" />
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_a4c5774a57324d7adef7a60140df6d21554c04e3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -30,12 +21,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/stpl/.android/build-cache/de59de5a800ae6c033cc85507895672fb15bda38/output/jars/classes.jar"
+        jar="/home/stpl/google/Hu_Po_Noga/Gpu-Image/build/intermediates/bundles/default/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.2"
-        sha1="89ba8466f3e32427af7aa725eb7be31a15c78a77">
-        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_880c60cde8524077b44d1f71959fd553fc977bcb.jar" />
+        sha1="324f9c3b9c6214a1da5bc5a00db2b1ff72eac372">
+        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_13b870a9228bef5cba1822dec0fc883688bf7e96.jar" />
     </item>
     <item
         is-multidex="false"
@@ -45,15 +36,6 @@
         revision="26.0.2"
         sha1="a3b040b017a45ab1fb863874cdcfb1d525fb3fda">
         <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_98fa1c5ac2dc0b8e7e1b8e2ab256508abd73e6df.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/stpl/.android/build-cache/0297a0e07ebc440ccb11251e6aea6e9c1e915ec5/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_a4c5774a57324d7adef7a60140df6d21554c04e3.jar" />
     </item>
     <item
         is-multidex="false"
@@ -75,6 +57,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/home/stpl/.android/build-cache/a6cf9b2ada908a4f0350afa20b0efc311d4a88df/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a8340f8c17337c864648c13abe1416d34c80ec14">
+        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_2f9b8083f9eee6ab4cd9b3c079d4bf88de5cac68.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/stpl/.android/build-cache/8d32b0bdd27bf60175bcbc46b3bbbf25b57a2970/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -90,6 +81,24 @@
         revision="26.0.2"
         sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
         <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4_305cb5b4951597b83ea290650dd5953b22c90da0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/stpl/.android/build-cache/586f747c6c45a93f7973f8fa066f89a3901ac340/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9bb33606c58ab7293f2fcecabf53375e7a9e216e">
+        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_73670888b69f3e33139383db10697b92c402b8c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/stpl/.android/build-cache/de59de5a800ae6c033cc85507895672fb15bda38/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="89ba8466f3e32427af7aa725eb7be31a15c78a77">
+        <dex dex="/home/stpl/google/Hu_Po_Noga/app/build/intermediates/pre-dexed/debug/classes_880c60cde8524077b44d1f71959fd553fc977bcb.jar" />
     </item>
 
 </items>

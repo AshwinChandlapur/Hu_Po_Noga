@@ -70,5 +70,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:11.2.0'
     compile 'de.hdodenhof:circleimageview:2.2.0'
     compile 'com.github.florent37:materialtextfield:1.0.7'
+    compile 'com.mikhaellopez:circularimageview:3.0.2'
 }
 apply plugin: 'com.google.gms.google-services'
