@@ -177,6 +177,13 @@ public class MainFeed extends Fragment {
                 }
             });
 
+            newsimage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl)));
+                }
+            });
+
         }
 
 

@@ -65,6 +65,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         viewHolder.tv_name.setText(android.get(i).getName());
         viewHolder.tv_url.setText(android.get(i).getUrl());
         viewHolder.tv_content.setText(android.get(i).getCon());
+        if ( videoUrl.endsWith("n/a") )
+            viewHolder.mytube.setVisibility(View.GONE) ;
+        else
+            viewHolder.mytube.setVisibility(View.VISIBLE) ;
 
         Glide.with(viewHolder.feedimage.getContext())
                 .load(android.get(i).getUrl())
@@ -105,6 +109,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         public TextView tv_name,tv_url,tv_content;
         public ImageView feedimage;
         public CardView parent_feed;
+        public ImageView mytube;
         public ViewHolder(View view) {
             super(view);
             parent_feed = (CardView)view.findViewById(R.id.parent_feed);
@@ -112,6 +117,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             tv_url = (TextView)view.findViewById(R.id.tv_url);
             tv_content = (TextView)view.findViewById(R.id.tv_content);
             feedimage = (ImageView)view.findViewById(R.id.feedimage);
+            mytube = (ImageView)view.findViewById(R.id.mytube);
 
         }
     }

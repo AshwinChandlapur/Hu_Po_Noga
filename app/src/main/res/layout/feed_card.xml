@@ -7,7 +7,7 @@
     android:layout_marginRight="@dimen/feed_item_margin"
     android:layout_marginTop="@dimen/feed_item_margin"
     android:background="@drawable/bg_parent_rounded_corner"
-    android:elevation="4dp">
+    android:elevation="6dp">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -28,8 +28,7 @@
                 android:layout_width="@dimen/feed_item_profile_pic"
                 android:layout_height="@dimen/feed_item_profile_pic"
                 android:scaleType="fitCenter"
-                android:src="@drawable/hupona_pic"
-                android:background="#bfbfbf">
+                android:src="@drawable/hupona_pic">
             </ImageView>
 
             <LinearLayout

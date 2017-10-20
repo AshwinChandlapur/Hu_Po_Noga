@@ -155,50 +155,46 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.github.florent37.materialtextfield.MaterialTextField
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:id="@+id/linearLayout"
+            app:mtf_cardCollapsedHeight="4dp"
+            app:mtf_image="@drawable/profile"
+            app:mtf_animationDuration="400"
+            app:mtf_openKeyboardOnFocus="true"
             android:layout_above="@+id/choosePhoto"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Name : "
-                android:textColor="#ffffff"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp">
 
             <EditText
-                android:layout_width="180dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffff"
+                android:textColor="#101010"
                 android:textSize="20sp"
+                android:hint="Your Name"
                 android:id="@+id/name"
                 />
-        </LinearLayout>
-
+        </com.github.florent37.materialtextfield.MaterialTextField>
 
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="258dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
 
             android:id="@+id/choosePhoto"
             android:text="Choose a Photo"
+            android:textAllCaps="false"
             android:layout_above="@+id/getID"
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="258dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Get Yout Nograj ID"
+            android:text="Get Your Nograj ID"
             android:id="@+id/getID"
+            android:textAllCaps="false"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="hlistview-1.2.2">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/67ff91458de43f1a45fe8532e269ac78031ab1f6/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/67ff91458de43f1a45fe8532e269ac78031ab1f6/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/7c653022d6b0545ca2589abd509c145fc94531c5/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/7c653022d6b0545ca2589abd509c145fc94531c5/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
